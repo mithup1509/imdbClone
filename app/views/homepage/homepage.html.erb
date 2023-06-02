@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <%= stylesheet_link_tag "homepage", "data-turbo-track": "reload" %>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="navbar">
+        <button onclick="handleClick()">
+            <p class="signin-text">signin</p>
+            </button>
+            <div class="searchbox">
+                  <select id="dropdown">
+                    <option value="">All</option>
+                    <option value="movie">Movies</option>
+                    <option value="series">TV Shows</option>
+                </select>
+
+                <input type="text" id="search" placeholder="Search here...">
+                <button class="search-button">search</search>
+            </div>
+            <label for="sortby" style="color: white;">Sort By :</label>
+            <select name="sort-type" id="sorttype">
+                <option value="all">SortBy</option>
+                <option value="title">Title</option>
+                <option value="year">Year</option>
+            </select>
+            <label for="filterby" style="color: white;">Filter By Year :</label>
+            <select name="filter-type" id="filtertype">
+                <option value="all">FilterBy</option>
+                <option value="2000">2000 before</option>
+                <option value="2001-2010">2001-2010</option>
+                <option value="2011">2011 after</option>
+            </select>
+
+        </div>
+
+    </nav>
+    <div class="main-container">
+        
+        <div class="container">
+
+        </div>
+    </div>
+   
+    <%= javascript_include_tag "homepage", "data-turbo-track" => "reload" %>
+</body>
+
+</html>

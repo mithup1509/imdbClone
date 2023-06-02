@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <%= stylesheet_link_tag "signup", "data-turbo-track": "reload" %>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="createaccount-container">
+
+            <p class="createaccount-text">Create Account</p>
+            <p class="already-account-alert">sorry! this mail id is already registered please login are use different mail id</p>
+
+            <form id="createaccount-form" novalidate>
+                <div class="user-name">
+                    <label for="username">Your name</label><br>
+                    <input type="text" id="username" class="input-box" placeholder="First and last name" required>
+                    <p class="username-alert-message">Enter Proper UserName</p>
+                </div>
+                <div class="email">
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" class="input-box" required>
+                    <p class="email-alert-message">Enter Proper Email Id </p>
+                </div>
+                <div class="password">
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" class="input-box" placeholder="at least 8 characters" required>
+                    <p class="password-alert-message"> <i id="italic-text">i</i> Passwords must be at least 8 characters.</p>
+                </div>
+                <div class="retype-password">
+                    <label for="repassword">Re-enter password</label><br>
+                    <input type="password" id="repassword" class="re-enterpassword input-box" required><br>
+                    <p class="repassword-alert-message">Re-enter Password is same as Password </p>
+                </div>
+                <button type="submit" id="create-button" > Create your IMDb account</button>
+            </form>
+            <div class="horizontal">
+                <hr>
+            </div>
+
+            <div class="already-account">
+                <p>Already have an account? <span><button onclick="handleClick()">Sign in</button></span></p>
+            </div>
+        </div>
+
+    </div>
+    <%= javascript_include_tag "signup", "data-turbo-track" => "reload" %>
+</body>
+
+</html>

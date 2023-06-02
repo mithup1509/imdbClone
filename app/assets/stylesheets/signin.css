@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+  background-color: white;
+  color: black;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.signin-container {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  background-color: white;
+  width: 16rem;
+  margin: 5rem 0;
+  padding: 1rem 2rem;
+}
+
+.signin-text {
+  font-size: 2rem;
+  background-color: white;
+  color: black;
+}
+
+.email {
+  font-weight: 700;
+  margin-top: 0.7rem;
+}
+
+.input-box {
+  margin-top: 0.3rem;
+  width: 90%;
+  padding: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  outline: none;
+}
+
+.password {
+  font-weight: 700;
+  margin-top: 0.7rem;
+}
+
+.signin-button {
+  margin-top: 1rem;
+  background-color: gold;
+  width: 95%;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.createnew-account {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#newaccount-button {
+  width: 95%;
+  height: 3rem;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.forgetpass {
+  font-size: 0.8em;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.6rem;
+  margin-right: 1rem;
+}
+
+.forgetpass a,
+.createnew-account a {
+  text-decoration: none;
+}
+
+.email-alert-message,
+.password-alert-message,
+.password-incorrect {
+  display: none;
+  margin: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.no-account {
+  border: 2px solid red;
+  text-align: center;
+  padding: 1rem;
+  width: 13rem;
+  margin: auto;
+  color: red;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  display: none;
+}
+
+
+
+.error-message{
+  color: red;
+  display: block;
+}
+.input-error{
+  border: 2px solid red;
+  color: red;
+  display: block;
+}

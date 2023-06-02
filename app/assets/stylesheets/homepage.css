@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  font-size: 16px;
+  background-color: #0f0309;
+}
+
+nav {
+  width: 100vw;
+}
+
+.signin-text {
+  padding: 0.5rem;
+  background-color: blue;
+  color: white;
+  font-size: 1rem;
+}
+
+.searchbox {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1rem;
+}
+.searchbox #search {
+  padding: 0.7rem;
+  /* width: 80%; */
+  outline: none;
+  flex: 1;
+  border: none;
+}
+.searchbox .search-button {
+  padding: 0.7rem;
+  /* width: 10%; */
+  border: none;
+  flex: 1;
+  outline: none;
+  background-color: white;
+}
+
+#dropdown {
+  flex: 1;
+  appearance: none;
+  text-align: center;
+  padding: 0.7rem;
+  border: 1px solid black;
+  background-color: blue;
+  color: white;
+  border: none;
+  font-family: inherit;
+  outline: none;
+}
+
+#filtertype,
+#sorttype {
+  margin: 0 1rem 1rem 1rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #0f0309;
+}
+
+.main-container {
+  width: 100vw;
+  background-color: #0f0309;
+}
+.container {
+  background-color: #0f0309;
+
+  height: 100%;
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.card-container {
+  width: 30%;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card-container:hover {
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
+.poster {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: inline-block;
+}
+
+.poster img {
+  width: 7rem;
+}
+
+.poster .content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 54px 54px 55px,
+    rgba(0, 0, 0, 0.12) 30px -12px 30px, rgba(0, 0, 0, 0.12) 6px 4px 6px,
+    rgba(0, 0, 0, 0.17) 13px 12px 13px, rgba(0, 0, 0, 0.09) 5px -3px 5px;
+  color: black;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.poster:hover .content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.poster .content .title {
+  margin: 0;
+  font-size: 1rem;
+  padding: 0.6rem;
+}
+
+.poster .content .year,
+#type {
+  color: grey;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .searchbox {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 1rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+
+  .card-container {
+    width: 17rem;
+    border: 1px solid white;
+  }
+
+  .poster img {
+    width: 17rem;
+    height: 25rem;
+  }
+
+  .searchbox #search {
+    flex: 3;
+  }
+  .searchbox .search-button {
+    flex: 1;
+  }
+
+  #dropdown {
+    flex: 1;
+  }
+
+  .poster .content {
+    padding: 2rem;
+  }
+
+  .poster .content .title {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+  }
+  .poster .content .year,
+  #type {
+    margin: 5px 0 0;
+    font-size: 1rem;
+  }
+
+  #filtertype,
+  #sorttype {
+    margin-top: 0.8rem;
+  }
+}
