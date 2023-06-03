@@ -98,6 +98,54 @@ fetchmovie()
     document.querySelector(".container").appendChild(movieCard);
   });
 
+
+document
+.getElementById("open-review-modal")
+.addEventListener("click", showModal);
+
+
+function showModal() {
+const modal = document.getElementById("review-modal");
+modal.style.display = "block";
+}
+
+document.querySelector(".close").addEventListener("click", closeModal);
+
+function closeModal() {
+const modal = document.getElementById("review-modal");
+
+modal.style.display = "none";
+}
+
+let reviewForm = document.getElementById("review-form");
+let reviewContainer = document.querySelector(".review-container");
+
+reviewForm.addEventListener("submit", (event) => {
+event.preventDefault();
+const nameInput = document.getElementById("name");
+const reviewInput = document.getElementById("review");
+
+if (nameInput.value !== "" && reviewInput.value !== "") {
+  let reviewElement = document.createElement("div");
+  reviewElement.classList.add("review");
+  reviewElement.innerHTML = `
+          <ul class="unorder-list">
+              <li class="li-name">👤 ${nameInput.value}</li>
+              <br>
+              <li class="li-review">${reviewInput.value}</li>
+          </ul>
+   
+      `;
+  reviewContainer.appendChild(reviewElement);
+  console.log(nameInput.value, reviewInput.value);
+}
+
+nameInput.value="";
+reviewInput.value="";
+closeModal();
+});
+
+
 function handleClick() {
   window.location.href = "/";
 }

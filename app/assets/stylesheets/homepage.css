@@ -18,6 +18,15 @@ nav {
   font-size: 1rem;
 }
 
+.add-movie-button{
+  padding: 0.5rem;
+  background-color: red;
+  color: white;
+  font-size: 1rem;
+  border: 1px solid white;
+  margin: 0.7rem;
+}
+
 .searchbox {
   width: 90%;
   display: flex;

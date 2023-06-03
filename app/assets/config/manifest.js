@@ -6,3 +6,4 @@
   //= link homepage.js
   //= link signin.js
    //= link movie.js
+   //= link movieAdd.js

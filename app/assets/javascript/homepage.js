@@ -146,3 +146,8 @@ function filterData() {
     }
   });
 }
+
+
+function handleAddMovie(){
+  window.location.href="movieadd";
+}

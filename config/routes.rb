@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get "signin",to:"signin#signin"
   get "signup",to:"signup#signup"
   get "movie/:id",to:"movie#movie"
+  get "movieadd",to:"addmovie#movieadd"
   
 end
