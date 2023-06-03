@@ -55,6 +55,11 @@ function createMovies(moviesDetails) {
       });
 }
 
+
+let signinText = document.getElementsByClassName("signin-text")[0];
+
+sessionStorage.setItem("useremail", signinText.innerHTML );
+
 function handleClick() {
   let signinText = document.getElementsByClassName("signin-text")[0];
   if (signinText.innerHTML !== "signin") {
@@ -66,9 +71,12 @@ function handleClick() {
     });
 
     localStorage.setItem("userData", JSON.stringify(removeuser));
+    // localStorage.setItem("useremail", JSON.stringify( signinText.innerHTML ));
     signinText.innerHTML = "signin";
     window.location.href = "signin";
   } else {
+
+    // localStorage.setItem("useremail", JSON.stringify( signinText.innerHTML ));
     window.location.href = "signin";
   }
 }

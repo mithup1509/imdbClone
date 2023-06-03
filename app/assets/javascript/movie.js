@@ -1,12 +1,14 @@
+let currenturl = window.location.href;
+let url = currenturl.split("/");
+imdbID = url[url.length - 1];
 function fetchmovie() {
   const apiKey = "a589d196";
 
-  let currenturl = window.location.href;
-  let url = currenturl.split("/");
-  imdbID = url[url.length - 1];
-
   return fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`);
 }
+
+let email = sessionStorage.getItem("useremail");
+console.log(email);
 
 let ratingReview = [];
 
@@ -98,54 +100,81 @@ fetchmovie()
     document.querySelector(".container").appendChild(movieCard);
   });
 
-
 document
-.getElementById("open-review-modal")
-.addEventListener("click", showModal);
+  .getElementById("open-review-modal")
+  .addEventListener("click", showModal);
 
 
 function showModal() {
-const modal = document.getElementById("review-modal");
-modal.style.display = "block";
+  if (email === "signin") {
+    showNouserModel();
+  } else {
+    const modal = document.querySelector(".modal");
+    modal.classList.add("modal-box");
+    // modal.style.display = "block";
+  }
 }
 
-document.querySelector(".close").addEventListener("click", closeModal);
+function showNouserModel() {
+  const modal = document.querySelector(".modal-nouser");
+  modal.classList.add("modal-box");
+  //  modal.style.display="block";
+}
+
+const closeButtons = document.querySelectorAll(".close");
+
+closeButtons.forEach((button) => {
+  button.addEventListener("click", closeModal);
+});
 
 function closeModal() {
-const modal = document.getElementById("review-modal");
+  console.log("hello");
+  const modal = document.querySelector(".modal");
+  modal.classList.remove("modal-box");
 
-modal.style.display = "none";
+  const modalNouser = document.querySelector(".modal-nouser");
+  modalNouser.classList.remove("modal-box");
 }
+
 
 let reviewForm = document.getElementById("review-form");
 let reviewContainer = document.querySelector(".review-container");
 
 reviewForm.addEventListener("submit", (event) => {
-event.preventDefault();
-const nameInput = document.getElementById("name");
-const reviewInput = document.getElementById("review");
+  event.preventDefault();
+  const nameInput = document.getElementById("name");
+  const reviewInput = document.getElementById("review");
 
-if (nameInput.value !== "" && reviewInput.value !== "") {
-  let reviewElement = document.createElement("div");
-  reviewElement.classList.add("review");
-  reviewElement.innerHTML = `
-          <ul class="unorder-list">
-              <li class="li-name">👤 ${nameInput.value}</li>
-              <br>
-              <li class="li-review">${reviewInput.value}</li>
-          </ul>
-   
-      `;
-  reviewContainer.appendChild(reviewElement);
-  console.log(nameInput.value, reviewInput.value);
-}
+  if (nameInput.value !== "" && reviewInput.value !== "") {
+    let reviewElement = document.createElement("div");
+    reviewElement.classList.add("review");
+    reviewElement.innerHTML = `
+            <ul class="unorder-list">
+                <li class="li-name">👤 ${nameInput.value}</li>
+                <br>
+                <li class="li-review">${reviewInput.value}</li>
+            </ul>
+     
+        `;
+    reviewContainer.appendChild(reviewElement);
+    console.log(nameInput.value, reviewInput.value);
+  }
 
-nameInput.value="";
-reviewInput.value="";
-closeModal();
+  nameInput.value = "";
+  reviewInput.value = "";
+  closeModal();
 });
-
 
 function handleClick() {
   window.location.href = "/";
+}
+
+function handleClickSignin() {
+  var currentURL = window.location.href; // Get the current URL
+  var newURL = currentURL.replace(`/movie/${imdbID}`, "/signin"); // Replace "/movie/tt1490017" with "/signin" in the URL
+
+  console.log(newURL);
+
+  // Perform the redirect
+  window.location.href = newURL;
 }
