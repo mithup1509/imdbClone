@@ -1,0 +1,28 @@
+       <div class="container">
+       <% if @allmovies.empty? %>
+       <h1 class="no-data-homepage">No data Found</h1>
+     <% else %>
+        <% @allmovies.each do |movie| %>
+            <div class="card-container">
+            <div class="poster" onclick="clickOnCard('<%= movie.id %>')">
+
+          <img  src=<%=movie.poster%>
+              alt="movie image" data-imdbid=<%=movie.id%>>
+              </div>
+             
+              <div class="content">
+              <h2 class="title" value="<%= movie.title %>"><%= movie.title %></h2>
+              <p class="year">Released Year: <%= movie.released %></p>
+              <p id="type">Movie Type: <%= movie.movietype %></p>
+              <div class="watchlist" onclick="clickOnCard('<%= movie.id %>')">
+                🎬 Watch
+              </div>
+            
+          
+          
+      </div>
+      </div>
+            <% end %>
+            <% end %>
+
+        </div>

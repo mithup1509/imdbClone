@@ -1,0 +1,119 @@
+$color:black;
+$background:white;
+$shadow:rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+$fontname:'Roboto Condensed', sans-serif;;
+
+@mixin fontfamily($size,$txtcolor,$backcolor){
+    font-size: $size;
+    font-family: $fontname;
+    background-color: $backcolor;
+    color: $txtcolor;
+}
+@mixin email-pass($weight:500,$mtop,$size:0.8rem){
+    font-family: $fontname;
+    font-weight: $weight;
+    margin-top: $mtop;
+    font-size: $size;
+}
+
+@mixin display($display,$justify){
+    display: $display;
+    justify-content: $justify;
+}
+
+.container{
+    width: 100vw;
+    @include display($display:"flex",$justify:"center" );
+    
+}
+
+%message-shared {
+    border: 2px solid red;
+
+    color: red;
+  }
+
+.signin-container {
+    box-shadow: $shadow;
+    background-color: $background;
+    width: 16rem;
+    margin: 5rem 0;
+    padding: 1rem 2rem;
+  }
+  .signin-text{
+    @include fontfamily($size:2rem,$txtcolor:$color,$backcolor:$background)
+  }
+
+  #signin-form{
+    .email ,  .password {
+    @include email-pass(700,0.7rem )   
+    }
+     
+  }
+
+  .signin-button {
+    @include fontfamily($size:0.8rem,$txtcolor:$color,$backcolor:gold);
+ 
+    margin-top: 1rem;
+    width: 95%;
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .createnew-account {
+    @include email-pass(700,0.7rem );
+  margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    }
+
+
+#newaccount-button {
+    @include fontfamily($size:0.8rem,$txtcolor:$color,$backcolor:$background);
+    width: 95%;
+    height: 3rem;
+    border-radius: 10px;
+  }
+
+.forgetpass {
+    @include display($display:"flex",$justify:"flex-end" );
+    @include email-pass($size:0.8rem, $mtop:0.6rem);
+    margin-right: 1rem;
+  }
+
+  .email-alert-message,
+.password-alert-message,
+.password-incorrect {
+
+  display: none;
+  margin: 0.4rem 1rem;
+  font-size: 0.8rem;
+}
+
+.label{
+    font-size: 1rem;
+    font-weight: 700;
+    color: $color;
+}
+.no-account {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    width: 13rem;
+    margin: auto;
+    font-family: $fontname;
+  
+    box-shadow: $shadow;
+   
+  }
+  
+  .input-error{
+    @extend %message-shared;
+    display: block;
+  }
+
+.error-message{
+    color: red;
+    display: block;
+  }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <%= stylesheet_link_tag "yourrating", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+<div class="user-allreviews-container">
+<div class="user-allreviews-heading">
+<h1>Your Reviews</h1>
+</div>
+   <% if @movieallreviews.empty? %>
+       <h1 class="no-data">No data Found</h1>
+     <% else %>
+     
+  <% @movieallreviews.each do |allreview| %>
+    <% if allreview[:movie] %>
+    <div class="allreviews">
+      <div class="allreviews-poster">
+        <% if allreview[:movie]["poster"] %>
+          <img src="<%= allreview[:movie]["poster"] %>" alt="poster">
+        <% end %>
+      </div>
+      <div class="allreviews-details">
+        <div class="allreviews-title" >
+    <p><%= allreview[:movie].title %></p>
+  </div>
+   <div class="allreviews-year">
+<p class="allreviews-movie-year"> <%=  allreview[:movie].released %></p>
+</div>
+ <div class="allreviews-runtime">
+  <p class="allreviews-time">
+    <%= (  allreview[:movie].runtime / 60).to_i %>hrs <%= (  allreview[:movie].runtime % 60).to_i %>min</p>
+</div>
+ <div class="allreviews-plot">
+    <p class="allreviews-movie-plot">
+      "<%=allreview[:movie].plot %>"
+    </p>
+  </div>
+
+  <% if allreview[:review] %>
+      <div class="review-rate">
+        <% if allreview[:review]["rating"] %>
+          <p>⭐ <%= allreview[:review]["rating"]  %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+   <div class="allreviews-director">
+        <p class="allreviews-director-name">Director: <%= allreview[:movie].director %></p>
+      </div>
+
+      <div class="allreviews-language">
+        <p class="allreviews-movie-lang">Language: <%= allreview[:movie].language %></p>
+      </div>
+
+
+      <div class="allreviews-writer">
+        <p class="allreviews-writer-name">Writer: <%= allreview[:movie].writer %></p>
+      </div>
+      </div>
+
+</div>
+    <% end %>
+      
+
+
+
+
+  <% end %>
+    <% end %>
+</div>
+
+</body>
+
+</html>

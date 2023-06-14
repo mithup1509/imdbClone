@@ -7,51 +7,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <%= stylesheet_link_tag "homepage", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+<div class="main-container">
     <nav>
 
         <div class="navbar">
-        <button onclick="handleClick()">
-            <p class="signin-text">signin</p>
-            </button>
-            <button class="add-movie-button" onclick="handleAddMovie()">
-            <p class="add-movie">Add Movie</p>
-            </button>
+        <div class="search-menu">
+        <button class="menu" onclick="openNav()">
+        <img src=" https://cdn3d.iconscout.com/3d/premium/thumb/hamburger-menu-2997247-2516285.png"
+              alt="menu-image">  
+        </button>
+       
             <div class="searchbox">
-                  <select id="dropdown">
-                    <option value="">All</option>
-                    <option value="movie">Movies</option>
-                    <option value="series">TV Shows</option>
-                </select>
+               
 
                 <input type="text" id="search" placeholder="Search here...">
-                <button class="search-button">search</search>
-            </div>
-            <label for="sortby" style="color: white;">Sort By :</label>
-            <select name="sort-type" id="sorttype">
-                <option value="all">SortBy</option>
-                <option value="title">Title</option>
-                <option value="year">Year</option>
-            </select>
-            <label for="filterby" style="color: white;">Filter By Year :</label>
-            <select name="filter-type" id="filtertype">
-                <option value="all">FilterBy</option>
-                <option value="2000">2000 before</option>
-                <option value="2001-2010">2001-2010</option>
-                <option value="2011">2011 after</option>
-            </select>
 
+            </div>
+            </div>
+           
         </div>
 
     </nav>
-    <div class="main-container">
-        
-        <div class="container">
+
+
+  
+
+    <%= render partial: "homepage/partialhome" %>
+
+
+        <div id="sidenav" class="mysidenav">
+        <span class="close">&times;</span>
+        <button class="signin-button" onclick="handleClick()">
+        <p class="signin-text">signin</p>
+        </button>
+        <button class="add-movie-button" onclick="handleAddMovie()">
+        <p class="add-movie">Add Movie</p>
+        </button>
+    
+        <button class="your-review-button" onclick="handleYourRevieew()">
+        <p class="your-review-text">Your Review</p>
+        </button>
+        <div>
+        <div class="sort">
+        <label for="sortby" id="label-sort" style="color: white;">Sort By :</label>
+        <select name="sort-type" id="sorttype">
+            <option value="all">SortBy</option>
+            <option value="title">Title</option>
+            <option value="year">Year</option>
+        </select>
+        </div>
+        <div class="filter">
+        <label for="filterby" id="label-filter" style="color: white;">Filter By Year :</label>
+        <select name="filter-type" id="filtertype">
+            <option value="all">FilterBy</option>
+            <option value="2000">2000 before</option>
+            <option value="2001-2010">2001-2010</option>
+            <option value="2011">2011 after</option>
+        </select>
+        </div>
+    <div class="drop">
+    <label for="dropdown" id="label-type" style="color: white;">Type :</label>
+       <select id="dropdown">
+                    <option value="all">All</option>
+                    <option value="Movie">Movies</option>
+                    <option value="series">TV Shows</option>
+                </select>
+    </div>
 
         </div>
+        <button onclick="deleteCookie()" class="logout">Logout</button>
+        </div>
+
+
     </div>
    
     <%= javascript_include_tag "homepage", "data-turbo-track" => "reload" %>

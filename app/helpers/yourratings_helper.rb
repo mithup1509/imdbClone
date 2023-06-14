@@ -1,0 +1,2 @@
+module YourratingsHelper
+end

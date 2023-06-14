@@ -7,3 +7,6 @@
   //= link signin.js
    //= link movie.js
    //= link movieAdd.js
+   //= link review.js
+    //= link test.css
+    //= link style.css

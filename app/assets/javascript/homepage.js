@@ -1,161 +1,143 @@
-const apiKey = "a589d196";
-function fetchMovies(url) {
-  console.log(url);
-  return fetch(`${url}`);
-}
-
 let signinButton = document.getElementsByClassName("signin-text")[0];
+let logoutButton = document.querySelector(".logout");
+let signButton = document.querySelector(".signin-button");
+let yourReviewButton=document.querySelector(".your-review-button");
+let cookie = getCookie();
+let array = cookie.split("=")[1];
+let cookieArray = array ? JSON.parse(array) : [];
 
-signinButton.innerHTML = !sessionStorage.getItem("user")
-  ? "signin"
-  : sessionStorage.getItem("user");
-let moviesDetails = [];
-
-fetchMovies(
-  `https://www.omdbapi.com/?apikey=${apiKey}&s=movie&type=movie&plot=full&page=1&pageSize=20`
-)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    moviesDetails = data.Search;
-    createMovies(data.Search);
-    return data.Search;
-  })
-  .then(() => {})
-  .catch((error) => {
-    console.log(error);
-  });
-
-function createMovies(moviesDetails) {
-  moviesDetails.length === 0
-    ? "no data"
-    : moviesDetails.forEach((element) => {
-        let cardContainer = document.createElement("div");
-        cardContainer.innerHTML = `  <div class="poster">
-          <img src="${element.Poster}"
-              alt="movie image" data-imdbid="${element.imdbID}">
-          <div class="content">
-              <h2 class="title" value='${element.Title}'>${element.Title}</h2> 
-                  <p class="year">Released Year:${element.Year}</p>
-            <p id="type">Movie Type: ${element.Type}</p>
-          </div>
-      </div>`;
-
-        cardContainer.setAttribute("class", "card-container");
-        document.querySelector(".container").appendChild(cardContainer);
-
-        let image = cardContainer.querySelector("img");
-        image.addEventListener("click", function () {
-          let imdbID = this.dataset.imdbid;
-          clickOnCard(imdbID);
-          localStorage.setItem("imdbID", imdbID);
-          console.log(imdbID);
-        });
-      });
+if (!cookieArray.email) {
+  signinButton.innerHTML = "signin";
+  logoutButton.disabled = true;
+  yourReviewButton.disabled = true;
+  signButton.disabled = false;
+  logoutButton.classList.add("button-disable");
+  yourReviewButton.classList.add("button-disable");
+} else {
+  signinButton.innerHTML = cookieArray.email;
+  logoutButton.disabled = false;
+  signButton.disabled = true;
+  yourReviewButton.disabled = false;
+  logoutButton.classList.remove("button-disable");
+  yourReviewButton.classList.remove("button-disable");
 }
 
+const addMovieButton = document.querySelector(".add-movie-button");
 
-let signinText = document.getElementsByClassName("signin-text")[0];
-
-sessionStorage.setItem("useremail", signinText.innerHTML );
+if (cookieArray.email === "mithup@gmail.com") {
+  addMovieButton.disabled = false;
+  addMovieButton.classList.remove("button-disable");
+} else {
+  addMovieButton.disabled = true;
+  addMovieButton.classList.add("button-disable");
+  console.log(cookieArray.email, "namw");
+}
 
 function handleClick() {
-  let signinText = document.getElementsByClassName("signin-text")[0];
-  if (signinText.innerHTML !== "signin") {
-    let userDataString = localStorage.getItem("userData");
-    let userData = JSON.parse(userDataString);
-    let removeuser = userData.filter((element) => {
-      console.log(element.email, signinText.innerHTML);
-      return element.email !== signinText.innerHTML;
-    });
-
-    localStorage.setItem("userData", JSON.stringify(removeuser));
-    // localStorage.setItem("useremail", JSON.stringify( signinText.innerHTML ));
-    signinText.innerHTML = "signin";
-    window.location.href = "signin";
-  } else {
-
-    // localStorage.setItem("useremail", JSON.stringify( signinText.innerHTML ));
-    window.location.href = "signin";
-  }
+  window.location.href = "signin";
 }
 function clickOnCard(imdbID) {
+  console.log(imdbID);
   window.location.href = `movie/${imdbID}`;
 }
 
-let searchname = document.querySelector(".search-button");
-searchname.addEventListener("click", searchName);
+function handleYourRevieew(){
+  window.location.href = `yourrating`;
+}
+
+function openNav() {
+  document.querySelector(".mysidenav").classList.add("sidebar");
+}
+
+const closeButtons = document.querySelector(".close");
+
+closeButtons.addEventListener("click", closeModal);
+
+function closeModal() {
+  document.querySelector(".mysidenav").classList.remove("sidebar");
+}
+function handleAddMovie() {
+  window.location.href = "movieadd";
+}
+function handleWatchlist() {
+  window.location.href = "watchlist";
+}
+
+function setCookie(user, data, seconds) {
+  const date = new Date();
+  date.setTime(date.getTime() + seconds * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + date.toUTCString();
+  document.cookie = `${user}=${data};${expires};path=/`;
+}
+
+function getCookie() {
+  let cookie = decodeURIComponent(document.cookie);
+  return cookie;
+}
+
+function deleteCookie() {
+  setCookie("user", null, null);
+  window.location.href = "signin";
+}
+
+let searchname = document.querySelector("#search");
+let filterType = document.getElementById("filtertype");
+let sortTypeSelect = document.getElementById("sorttype");
+let dropdown = document.getElementById("dropdown");
+let searchValue = "";
+let filterValue = "";
+let sortValue = "";
+
+searchname.addEventListener("keyup", searchName);
+filterType.addEventListener("change", updateFilterValue);
+sortTypeSelect.addEventListener("change", updateSortValue);
+dropdown.addEventListener("change", updateDropdownValue);
+
+function updateFilterValue() {
+  filterValue = filterType.value;
+  fetchData();
+}
+
+function updateSortValue() {
+  sortValue = sortTypeSelect.value;
+  fetchData();
+}
+
+function updateDropdownValue() {
+  fetchData();
+}
+
+let searchTimer;
 
 function searchName() {
-  const searchValue = document.getElementById("search").value.toLowerCase();
-  const dropdownValue = document.getElementById("dropdown").value;
-  const container = document.querySelector(".container").children;
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchValue = searchname.value;
+    fetchData();
+  }, 1000);
+}
 
-  fetchMovies(
-    `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchValue}&type=${dropdownValue}&plot=full&page=1&pageSize=20`
+function fetchData() {
+  fetch(
+    `http://127.0.0.1:3000/homepage/searchValue/?search=${searchValue}&filtertype=${filterValue}&dropdown=${dropdown.value}&sorttype=${sortValue}`
   )
-    .then((response) => response.json())
+    .then((res) => res.json())
     .then((data) => {
-      document.querySelector(".container").innerHTML = "Wait a Bit";
-
-      createMovies(data.Search);
+      if (data.success) {
+        if (data.movie) {
+          document.querySelector(".container").innerHTML = data.movie;
+        } else {
+          document.querySelector(".container").innerHTML =
+            '<h1 class="no-data-homepage">No data found</h1>';
+        }
+      } else {
+        document.querySelector(".container").innerHTML =
+          '<h1 class="no-data-homepage">No data found</h1>';
+      }
     })
     .catch((error) => {
-      console.log(error);
+      return error;
     });
 }
 
-let sorttype = document.getElementById("sorttype");
-sorttype.addEventListener("click", sortmovies);
-function sortmovies(e) {
-  let movies = Array.from(document.getElementsByClassName("title"));
-  let sorttypeValue = document.getElementById("sorttype").value;
-
-  if (sorttypeValue === "title") {
-    movies.sort((a, b) => a.innerHTML.localeCompare(b.innerHTML));
-  } else if (sorttypeValue === "year") {
-    movies.sort(
-      (a, b) =>
-        parseInt(a.nextElementSibling.innerHTML.substring(14)) -
-        parseInt(b.nextElementSibling.innerHTML.substring(14))
-    );
-  }
-
-  let container = document.querySelector(".container");
-
-  movies.forEach((title) => {
-    let cardContainer = title.closest(".card-container");
-    container.appendChild(cardContainer);
-  });
-}
-
-let filterType = document.getElementById("filtertype");
-filterType.addEventListener("click", filterData);
-function filterData() {
-  const moviesYears = Array.from(document.getElementsByClassName("year"));
-  const filterTypeValue = document.getElementById("filtertype").value;
-
-  moviesYears.forEach((year) => {
-    const parentCard = year.parentElement.parentElement.parentElement;
-    const yearValue = parseInt(year.innerHTML.split(":")[1]);
-
-    if (
-      (filterTypeValue === "2000" && yearValue <= 2000) ||
-      (filterTypeValue === "2001-2010" &&
-        yearValue >= 2001 &&
-        yearValue <= 2010) ||
-      (filterTypeValue === "2011" && yearValue >= 2011) ||
-      filterTypeValue === "all"
-    ) {
-      parentCard.style.display = "block";
-    } else {
-      parentCard.style.display = "none";
-    }
-  });
-}
-
-
-function handleAddMovie(){
-  window.location.href="movieadd";
-}
+fetchData();

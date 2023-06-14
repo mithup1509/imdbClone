@@ -7,50 +7,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <%= stylesheet_link_tag "movie", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-<button onclick="handleClick()" class="back-button">Back</button>
-    <div class="container">
 
-    </div>
+<div class="container">
 
-    <div class="modal-nouser">
-    <div class="modal-nouser-content">
-    <div class="sigin-nouser">
-    <p class="nouser-text">Please Sign in </p>
-    <span class="close">&times;</span>
-    </div>
-    
-    <button onclick="handleClickSignin()">
-    <p class="signin-text">sign in</p>
-    </button>
-    </div>
-    
-    </div>
 
-    <div>
-    <button id="open-review-modal" class="open-review-button">Add Review</button>
-    <div id="review-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 class="add-review-text">Add Review</h2>
-            <form id="review-form">
-                <label for="name" class="label">Name:</label><br>
-                <input type="text" id="name" class="input-box" placeholder="Enter Name" required>
-                <br>
-                <label for="review" class="label">Review:</label><br>
-                <textarea id="review" class="input-box" required></textarea>
-                <br>
-                <button type="submit" class="submit-button">Submit Review</button>
-            </form>
-        </div>
-    </div>
-    <div class="review-container">
-
-    </div>
+<div class="movie">
+  <div class="title">
+    <p><%= @detail.title %></p>
+  </div>
+  <div class="maincontainer">
+  <div class="time-year">
+  <div class="released-year">
+<p class="year"> <%= @detail.released %></p>
 </div>
+  <div class="runtime">
+  <p class="time">
+    <%= (@detail.runtime / 60).to_i %>hrs <%= (@detail.runtime % 60).to_i %>min</p>
+</div>
+
+
+</div>
+    <div class="poster-image">
+      <div class="poster">
+        <img src="<%= @detail.poster %>" alt="poster">
+      </div>
+      <div class="genre-plot">
+      <div class="genre">
+      <ul>
+        <% @detail.genre.split(",").each do |genre| %>
+          <li><%= genre %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="plot">
+    <p class="movie-plot">
+      "<%= @detail.plot %>"
+    </p>
+  </div>
+      <div class="rating">
+        <p class="imdb-rating">⭐ <%= sprintf('%.1f', @detail.rating) %>/10</p>
+      </div>
+      <%= render partial: "movie/partialmovie" %>
+    
+      <div class="actors">Actors:
+      <ul>
+        <% @detail.actors.split(",").each do |actor| %>
+          <li><%= actor %></li>
+        <% end %>
+      </ul>
+    </div>
+    <button class="search-reviews" onclick="handleWatchReview()">watch reviews</button>
+   
+      </div>
+    </div>
+    <div class="details">
+  
+      <div class="director">
+        <p class="director-name">Director: <%= @detail.director %></p>
+      </div>
+
+      <div class="language">
+        <p class="movie-lang">Language: <%= @detail.language %></p>
+      </div>
+
+
+      <div class="writer">
+        <p class="writer-name">Writer: <%= @detail.writer %></p>
+      </div>
+  
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+
+
+<div  class="modal-rate">
+<div class="modal-content-rate">
+<div class="rate-text-cancel">
+<p>Add Rate</p>
+<span class="close">&times;</span>
+</div>
+
+  <div class="rate">
+    <input type="radio" onclick="handleStarRating(event,)" id="star10" name="rate" value="10" />
+    <label for="star10" title="text">5 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star9" name="rate" value="9" />
+    <label for="star9" title="text">4 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star8" name="rate" value="8" />
+    <label for="star8" title="text">3 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star7" name="rate" value="7" />
+    <label for="star7" title="text">2 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star6" name="rate" value="6" />
+    <label for="star6" title="text">1 star</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" onclick="handleStarRating(event,)" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+  </div>
+  <button onclick="handleSubmitRating()" class="submit-rate">Submit</button>
+</div>
+</div>
+
+
+<div class="modal-nouser">
+<div class="modal-nouser-content">
+<div class="sigin-nouser">
+<p class="nouser-text">Please Sign in </p>
+<span class="close">&times;</span>
+</div>
+
+<button  class="signin-text-button" onclick="handleClickSignin('<%= @detail.id %>')" >
+<p class="signin-text">sign in</p>
+</button>
+</div>
+
+</div>
+
+
+
+
+
     <%= javascript_include_tag "movie", "data-turbo-track" => "reload" %>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

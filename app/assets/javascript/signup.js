@@ -1,5 +1,5 @@
 let defaultregexPattern = /.*/; // Default pattern for non-password fields
-let usernameRegexPattern= /^[A-Za-z]+$/; // Alphabetic characters only for username
+let usernameRegexPattern= /^[A-Za-z, ]*[^ ][A-Za-z, ]*$/; // Alphabetic characters only for username
 let emailRegexPattern=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // Email pattern
 let passwordRegexPattern=/.{8,}/; // Minimum 8 characters for password fields
 
@@ -53,16 +53,19 @@ if(password===document.getElementById("repassword").value){
 
 
   let userdata = {
-    name: username,
+    username: username,
     email: userEmail,
     password: password,
   };
 
-  let existingFormData = localStorage.getItem("userData");
-  let formdata = existingFormData ? JSON.parse(existingFormData) : [];
-  let addLocalStorage = !formdata.some(
-    (element) => element.email === userEmail
-  );
+  let existingFormData= fetchUsers().then((res)=>{
+
+    return res.json();
+    }).then((data)=>{
+      let formdata =   data ? (data) : [];
+      let addLocalStorage = !formdata.some(
+        (element) => element.email === userEmail
+      );
 
   if (addLocalStorage) {
     document
@@ -71,14 +74,40 @@ if(password===document.getElementById("repassword").value){
     resetForm();
 
     formdata.push(userdata);
+    console.log(JSON.stringify(userdata));
 
-    localStorage.setItem("userData", JSON.stringify(formdata));
-    window.location.href = "signin";
+    fetch("http://127.0.0.1:3000/api/createaccount/",{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(userdata),
+
+    }).then((res)=>{
+      if(res){
+        return res.json();
+      }else{
+        return "Error in Creating";
+      }
+    }).then((data)=>{
+      window.location.href = "signin";
+    })    .catch((error) => {
+      return error;
+    });
+
+     
   } else {
     document
       .querySelector(".already-account-alert")
       .classList.add("input-error");
   }
+      return data;
+    }).catch((err)=>{
+      return err;
+    });
+
+
+
 }else{
  
   document.querySelector(".re-enterpassword").classList.add("input-error");
@@ -86,6 +115,7 @@ if(password===document.getElementById("repassword").value){
 }
   }
 });
+
 
 let inputs = document.querySelectorAll(
   "#createaccount-form input:not([type='submit'])"
@@ -117,4 +147,8 @@ function resetForm() {
 function handleClick() {
   console.log("hello");
   window.location.href = "signin";
+}
+
+function fetchUsers(){
+return fetch("http://127.0.0.1:3000/api/createaccount/");
 }

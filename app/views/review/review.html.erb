@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <%= stylesheet_link_tag "review", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <div class="container">
+    
+<div  class="reviews-container">
+<div class="review-image">
+<img src="<%= @movies.poster %>" alt="poster">
+<p class="review-image-title"><%= @movies.title %></p>
+</div>
+<div>
+    <button id="open-review-modal" onclick="handleAddReview()" class="open-review-button">Add Review</button>
+    <div id="review-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="add-review-text">Add Review</h2>
+            <form id="review-form">
+            <div class="user-box">
+            <% if @users %>
+            <div class="user-initial-box"> <%=@users["username"][0].upcase%></div>
+            <div><%=@users["email"]%></div>
+             <% else %>
+            
+             <div>Log in</div>
+              <% end %>
+            
+            </div>
+            
+        
+                <label for="review" class="label">Review:</label><br>
+                <textarea id="review" class="input-box" required></textarea>
+                <br>
+                <button type="submit" class="submit-button">Submit Review</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <% if @moviereview.empty? %>
+    <p class="no-review">No reviews</p>
+  <% else %>
+    <% @moviereview.each do |review| %>
+      <ul class="unorder-list">
+      <% if review[:article] %>
+  <li>
+    <div class="user-name">
+      <div class="user-initial"><%= review[:article].username[0].upcase %></div>
+      <div class="review-username"><%= review[:article].username %></div>
+    </div>
+  </li>
+<% end %>
+
+        <li>
+          <div class="review-message">
+            <%= review[:review].review %>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+  
+    </div>
+
+
+
+    <div class="modal-nouser">
+    <div class="modal-nouser-content">
+    <div class="sigin-nouser">
+   <p class="nouser-text">Please Sign in </p>
+    <span class="close">&times;</span>
+    </div>
+   
+    <button  class="signin-text-button" onclick="handleClickSignin()" >
+    <p class="signin-text">sign in</p>
+    </button>
+    </div>
+   </div>
+
+    </div>
+
+
+
+    <%= javascript_include_tag "review", "data-turbo-track" => "reload" %>
+</body>
+
+</html>

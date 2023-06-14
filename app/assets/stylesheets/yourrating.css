@@ -1,0 +1,97 @@
+.user-allreviews-container{
+    width: 80%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    margin: auto;
+}
+.allreviews{
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+.allreviews-poster{
+   padding: 10px;
+    width: 30%;
+    display: flex;
+   align-items: center;
+
+}
+.allreviews-poster img{
+    margin: auto;
+    width: 100%;
+    height: 70%;
+}
+.allreviews-details{
+  
+    width: 70%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.allreviews-title{
+    padding: 2px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.allreviews-director,.allreviews-language,.allreviews-writer{
+    font-size: 12px;
+    padding: 2px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.allreviews-plot{
+    padding: 2px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.allreviews-runtime,.allreviews-movie-year{
+    font-size: 13px;
+    padding: 2px;
+    font-weight: 500;
+    color: black;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.user-allreviews-heading{
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+
+
+    .user-allreviews-container{
+        width: 50%;
+      
+    }
+
+ 
+    .allreviews-poster img{
+        margin: auto;
+        width: 50%;
+        height: 70%;
+    }
+
+    
+    .allreviews-director,.allreviews-language,.allreviews-writer{
+        font-size: 14px;
+        padding: 2px;
+        font-family: "Roboto Condensed", sans-serif;
+    }
+    .allreviews-plot{
+        padding: 2px;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: "Roboto Condensed", sans-serif;
+    }
+    .allreviews-runtime,.allreviews-movie-year{
+        font-size: 15px;
+        padding: 2px;
+        font-weight: 500;
+        color: black;
+        font-family: "Roboto Condensed", sans-serif;
+    }
+
+}

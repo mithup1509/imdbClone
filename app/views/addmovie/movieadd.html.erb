@@ -7,28 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <%= stylesheet_link_tag "movieAdd", "data-turbo-track": "reload" %>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
     <div class="container">
+      <div class="movie-success">
+      <p>Movie Add Successfully </p>
+      </div>
         <div class="main-container">
 
         <h2 class="addmovie-text">Add Movie</h2>
         <form id="add-movie-form" novalidate>
+        <div>
             <div class="input-container">
                 <label class="label" for="title">Title : </label>
-                <input type="text" class="input-box" id="title" placeholder="Enter the Movie Title" required><br>
-                <div id="title-error" class="error-message">enter valid one </div>
+                <input type="text" class="input-box" id="title" placeholder="Enter the Movie Title" required>
+                </div>
+             
+                <p id="title-error" class="error-message-alert">enter valid one </p>
 
-            </div>
+        </div>
+         <div>
             <div class="input-container">
                 <label class="label" for="actors">Actors : </label>
-                <input type="text" class="input-box" id="actors" placeholder="Enter the Actors" required><br>
-                <div id="actors-error" class="error-message">enter valid one</div>
+                <input type="text" class="input-box" id="actors" placeholder="Enter the Actors" required>
+                </div>
+                <p id="actors-error" class="error-message-alert">enter valid one</p>
 
-            </div>
-            <div class="input-container">
+         </div>
+         
+        <div class="input-container">
                 <label class="label" for="country">Country : </label>
                 <select class="input-box" id="country" required>
                     <option value="">Select a country</option>
@@ -41,67 +53,91 @@
                     <option value="Algeria">Algeria</option>
                     <option value="Brazil">Brazil</option>
                   </select>
-                   <div id="country-error" class="error-message">enter valid one</div>
-
-            </div>
+                 
+        </div>
+        <div>
             <div class="input-container">
                 <label class="label" for="director">Director : </label>
-                <input type="text" class="input-box" id="director" placeholder="Enter the Director of the Movie" required><br>
-                <div id="director-error" class="error-message">enter valid one</div>
+                <input type="text" class="input-box" id="director" placeholder="Enter the Director of the Movie" required>
+                </div>
+                <p id="director-error" class="error-message-alert">enter valid one</p>
 
-            </div>
+        </div>
+        <div>
             <div class="input-container">
                 <label class="label" for="language">Language : </label>
-                <input type="text" class="input-box" id="language" placeholder="Enter the Language" required><br>
-                <div id="language-error" class="error-message">enter valid one</div>
+                <input type="text" class="input-box" id="language" placeholder="Enter the Language" required>
+                </div>
+                <p id="language-error" class="error-message-alert">enter valid one</p>
 
-            </div>
+        </div>
+        <div>
             <div class="input-container">
                 <label class="label" for="plot">Plot : </label>
-                <input type="text" class="input-box" id="plot" placeholder="Enter the movie Plot" required><br>
-                <div id="plot-error" class="error-message">enter valid one</div>
+                <input type="text" class="input-box" id="plot" placeholder="Enter the movie Plot" required>
+                </div>
+                <p id="plot-error" class="error-message-alert">enter valid one</p>
 
-            </div>
+        </div>
+        <div>
             <div class="input-container">
                 <label class="label" for="released">Released : </label>
-                <input type="date" class="input-box" id="released" placeholder="Enter the  released date" required><br>
-                <div id="released-error" class="error-message">enter valid one</div>
+                <input type="date" class="input-box" id="released" placeholder="Enter the  released date" required>
+                </div>              
+                <p id="released-error" class="error-message-alert">enter valid one</p>
 
-            </div>
+        </div>
+        <div>
             <div class="input-container">
                 <label class="label" for="runtime">Runtime : </label>
-                <input type="text" class="input-box" id="runtime" placeholder="Enter the Runtime in minutes" required><br>
-                <div id="runtime-error" class="error-message">enter valid one</div>
+                <input type="number" class="input-box" id="runtime" placeholder="Enter the Runtime in minutes" required>
+                </div>
+                <p id="runtime-error" class="error-message-alert">enter runtime in minutes</p>
 
-            </div>
+        </div>
+        <div>
             <div class="input-container">
                 <label class="label" for="type">Type : </label>
-                <input type="text" class="input-box" id="type" placeholder="Enter the movie Type" required><br>
-                <div id="type-error" class="error-message">enter valid one</div>
+                <input type="text" class="input-box" id="type" placeholder="Enter the movie Type" required>
+                </div>
+                <p id="type-error" class="error-message-alert">enter valid one</p>
 
-            </div>
+        </div>
+        <div>
             <div class="input-container">
                 <label class="label" for="writer">Writer : </label>
-                <input type="text" class="input-box" id="writer" placeholder="Enter the Writer" required><br>
-                <div id="writer-error" class="error-message">enter valid one</div>
+                <input type="text" class="input-box" id="writer" placeholder="Enter the Writer" required>
+                </div>
+                <p id="writer-error" class="error-message-alert">enter valid one</p>
 
-            </div>
+        </div>
+        <div>
             <div class="input-container">
-                <label class="label" for="year">Year : </label>
-                <input type="text" class="input-box" id="year" placeholder="Enter the release Year" required><br>
-                <div id="year-error" class="error-message">enter valid one</div>
+                <label class="label" for="genre">Genre : </label>
+                <input type="text" class="input-box" id="genre" placeholder="Enter the Genre" required>
+                </div>
+                <p id="genre-error" class="error-message-alert">enter valid one</p>
 
-            </div>
+        </div>
+          <div>
             <div class="input-container">
-                <label class="label" for="imdbid">ImdbID : </label>
-                <input type="text" class="input-box" id="imdbid" placeholder="Enter the imdbID" required><br>
-                <div id="imdbid-error" class="error-message">enter valid one</div>
+                <label class="label" for="poster">Poster : </label>
+                <input type="text" class="input-box" id="poster" placeholder="Enter the poster url" required>
+                </div>
+                <p id="poster-error" class="error-message-alert">enter proper url</p>
 
-            </div>
+        </div>
+         <div class="input-container">
+                <label class="label" for="rating">Rating : </label>
+                <input type="number" step="0.1" class="input-box" id="rating" placeholder="Enter the rating" required>
+                </div>
+                <p id="rating-error" class="error-message-alert">enter decimal values also</p>
 
-            <div class="button-container">
+         </div>
+
+        <div class="button-container">
                 <button  class="submit-button"  type="submit">Submit</button>
-            </div>
+        </div>
 
         </form>
     </div>

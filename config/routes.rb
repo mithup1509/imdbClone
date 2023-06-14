@@ -1,12 +1,23 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    resources :reviewuser, only: [:index, :show, :create, :update, :destroy]
+    resources :watchlist, only: [:index, :show, :create, :update, :destroy]
+    resources :userreview, only: [:index, :show, :create, :update, :destroy]
+    resources :moviedetail, only: [:index, :show, :create, :update, :destroy]
+    resources :createaccount, only: [:index, :show, :create, :update, :destroy]
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#signup"
   root "homepage#homepage"
+  get "homepage/searchValue", to: "homepage#searchValue"
   get "signin",to:"signin#signin"
   get "signup",to:"signup#signup"
   get "movie/:id",to:"movie#movie"
   get "movieadd",to:"addmovie#movieadd"
+  get "watchlist",to:"watchlist#watchlist"
+  get "review/:id",to:"review#review"
+  get "yourrating",to:"yourratings#yourrating"
+
+
+  # get '*unmatched_route', to: 'signin#signin'
   
 end

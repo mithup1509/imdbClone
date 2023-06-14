@@ -5,127 +5,123 @@
 :root {
   font-size: 16px;
   color: white;
-  background-color: #0f0309;
+  background-color: rgb(57, 56, 56);
+}
+.maincontainer {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.back-button{
-  padding: 1rem;
-  color: white;
-  background-color: blue;
-  border: 2px solid white;
+.my-star{
+  font-size: 16px;
+  margin: 10px;
+  font-family: "Roboto Condensed", sans-serif;
 }
-
 .container {
   width: 100vw;
   margin: 0;
-  background-color: #0f0309;
+
+  background-color: rgb(57, 56, 56);
 }
 .title {
   margin: 0;
   padding: 2rem;
   font-size: 1.8rem;
   font-weight: 700;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .poster {
   display: flex;
+
   justify-content: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .poster img {
-  width: 40%;
+  width: 100%;
+  height: 17rem;
+
+  margin: 1rem;
 }
 .rating {
-  margin: 1rem;
-  display: flex;
-  justify-content: flex-end;
+  margin: 0.5rem;
 }
 .imdb-rating {
-  font-size: 2rem;
+  font-size: 0.9rem;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .time {
-  font-size: 1.3rem;
+  font-size: 1rem;
+  color: gray;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.year {
+  font-size: 0.8rem;
+  color: gray;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .plot {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 .movie-plot {
   font-weight: 600;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0 0.5rem;
 }
 .actors {
-  font-size: 1.3rem;
+  font-size: 1rem;
+  margin: 0.5rem;
 }
 .actors ul {
-  font-size: 1rem;
-  margin: 1rem;
+  font-size: 0.9rem;
+  font-family: "Roboto Condensed", sans-serif;
   margin-left: 2rem;
+  list-style-type: none;
+  gap: 0.6rem;
 }
 
 .genre {
   font-size: 1.3rem;
 }
 .genre ul {
+  display: flex;
   font-size: 1rem;
-  margin: 1rem;
-  margin-left: 2rem;
+  /* margin: 1rem; */
+  /* margin-left: 2rem; */
+  font-family: "Roboto Condensed", sans-serif;
 }
 .genre li {
+  list-style-type: none;
   border: 1px solid white;
-  border-radius: 20%;
+  border-radius: 20px;
   width: 30%;
   margin: 0.3rem;
   padding: 0.5rem;
 }
 .director,
-.language,
-.released-year {
+.language {
   margin: 1rem;
-  font-size: 1.3rem;
-  border: 1px solid white;
-  padding: 1rem;
+  font-size: 0.9rem;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 0;
   border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  border-top: 1px solid rgb(100, 96, 96);
+  padding: 0.5rem;
+}
+.time-year {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+  gap: 2vw;
 }
 
 .writer {
   margin: 1rem;
   font-size: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  border-top: 1px solid rgb(100, 96, 96);
+  padding: 0.5rem;
 }
-.votes {
-  display: flex;
-  justify-content: end;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  color: black;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 10px auto;
-  padding: 10px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-}
-
 .close {
   color: #0a0909;
   float: right;
-  font-size: 28px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -136,64 +132,24 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-/* Review container */
-#review-container {
-  margin-top: 20px;
-}
-
-.review {
-  border-radius: 5px;
-  padding: 10px;
-  width: 50%;
-  margin-bottom: 10px;
-}
-
-.add-review-text {
-  margin: 10px;
-}
-
-.label {
-  font-weight: 700;
-  margin: 10px;
-}
-.input-box {
-  margin: 10px;
-  padding: 10px;
-  width: 90%;
-  border-radius: 5px;
-}
-
-.submit-button {
-  background-color: gold;
-  border: none;
-  padding: 10px;
-  width: 95%;
-  margin: 10px;
-}
-.open-review-button {
-  padding: 10px;
-  width: 100%;
-}
-
-.li-review {
-  font-size: 10px;
-}
-.li-name {
-  font-size: 15px;
-}
-
 .signin-text {
   padding: 0.3rem;
   background-color: blue;
+  border-radius: 10px;
   color: white;
   font-size: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
 }
-.sigin-nouser{
+.sigin-nouser {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-
+.signin-text-button {
+  border: none;
+  outline: none;
+  margin: 10px;
+}
 
 .modal-nouser {
   display: none;
@@ -213,91 +169,199 @@
   margin: 10px auto;
   padding: 10px;
   border: 1px solid #888;
-  width: 80%;
+  width: 22%;
+  border-radius: 5px;
   max-width: 600px;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
-.modal-box{
+.modal-box {
+  display: block;
+}
+.search-reviews {
+  padding: 0.5rem;
+  margin: 0.7rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.user-rate {
+  background-color: rgb(57, 56, 56);
+  color: white;
+  padding: 10px;
+  border: none;
+  margin: 10px;
+}
+
+.user-rate-text {
+  font-size: 1.2rem;
+}
+
+.modal-rate {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-box {
   display: block;
 }
 
-@media (min-width: 768px) {
+.modal-content-rate {
+  background-color: #fefefe;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 20%;
+  max-width: 600px;
+  font-family: "Roboto Condensed", sans-serif;
+}
 
-  .maincontainer {
-    width: 90vw;
-    display: flex;
-    border: 1px solid white;
-    margin: 1rem;
+.submit-rate{
+  background-color: #deb217;
+  border: none;
+  padding: 7px;
+  margin:0 20px;
+}
+
+.rate-text-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+}
+.rate:not(:checked) > label:before {
+  content: "★ ";
+}
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+.genre-plot {
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .movie {
+    width: 80%;
+
+    margin: auto;
     padding: 1rem;
   }
-  .title {
-    padding: 2rem;
-    font-size: 3rem;
-    font-weight: 700;
-    text-align: center;
-  }
+
   .poster {
+    flex: 1;
+
     display: flex;
     justify-content: center;
   }
+  .genre-plot {
+  
+    flex: 1;
+  }
+
   .poster img {
-    width: 50%;
-    height: 70vh;
+    width: 20rem;
+    height: 50vh;
   }
   .details {
-    width: 50%;
+    width: 70%;
+    /* margin: 1rem; */
   }
   .poster-image {
-    width: 50%;
+    width: 100%;
+    display: flex;
   }
   .rating {
     justify-content: center;
-    margin: 1rem;
+    margin: 0.5rem;
   }
-  .time {
-    font-size: 1.5rem;
-  }
-
-  .movie-plot {
-    font-weight: 600;
+  .imdb-rating {
     font-size: 1.4rem;
   }
-  .actors {
-    font-size: 1.7rem;
-  }
-  .actors ul {
-    font-size: 1.5rem;
+  .time {
+    font-size: 1.2rem;
   }
 
-  .genre {
-    font-size: 1.5rem;
+  .search-reviews {
+    padding: 1rem;
+  }
+  .movie-plot {
+    font-weight: 600;
+    margin: 2rem 0.3rem;
+    font-size: 1rem;
+  }
+  .actors {
+    font-size: 1.3rem;
+  }
+  .actors ul {
+    font-size: 1rem;
+  }
+
+  .director,
+  .language {
+    font-size: 1.3rem;
   }
   .genre ul {
     font-size: 1.2rem;
     text-align: center;
+    margin: 2rem 0;
   }
 
   .writer {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
-  .votes {
-    font-size: 2rem;
+
+  .year {
+    font-size: 1.2rem;
   }
-  .year{
-    font-size: 1.4rem;
+
+  .user-rate {
+    margin: 10px;
   }
 
 
-  .modal-content {
-    margin: 20px auto;
-    padding: 20px;
-    width: 30%;
-  }
-  .li-review {
-    font-size: 15px;
-  }
-  .li-name {
-    font-size: 25px;
-  }
 
+  .user-rate-text {
+    font-size: 1.5rem;
+  }
 }

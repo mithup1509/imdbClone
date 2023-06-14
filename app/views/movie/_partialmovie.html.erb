@@ -1,0 +1,24 @@
+<div>
+<div class="my-star"> 
+<% if @rate==0 || @rate.nil?%>
+ <p>★ 0/10</p>
+ <% else %>
+<p>★<%= sprintf('%.1f',@rate)%>/10</p>
+ <% end %>
+</div>
+
+
+  <% if @movieallreviews %>
+    <% if @movieallreviews.last %>
+      <% if @movieallreviews.last.rating %>
+        <button id="open-review-modal" onclick="handlestarRate('<%= @movieallreviews.last.id %>')" class="open-review-button">✰<%= @movieallreviews.last.rating %></button>
+      <% else %>
+        <button id="open-review-modal" onclick="handlestarRate()" class="open-review-button">✰Rate</button>
+      <% end %>
+    <% else %>
+      <button id="open-review-modal" onclick="handlestarRate()" class="open-review-button">✰Rate</button>
+    <% end %>
+  <% else %>
+    <button id="open-review-modal" onclick="handlestarRate()" class="open-review-button">✰Rate</button>
+  <% end %>
+</div>
