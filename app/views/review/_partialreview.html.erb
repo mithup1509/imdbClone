@@ -1,0 +1,23 @@
+ <% if @moviereview.nil? %>
+    <p class="no-review">No reviews</p>
+  <% else %>
+    <% @moviereview.each do |review| %>
+      <ul class="unorder-list">
+      <% if review[:article] %>
+  <li>
+    <div class="user-name">
+      <div class="user-initial"><%= review[:article].username[0].upcase %></div>
+      <div class="review-username"><%= review[:article].username %></div>
+    </div>
+  </li>
+<% end %>
+
+        <li>
+          <div class="review-message">
+            <%= review[:review].review %>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+  

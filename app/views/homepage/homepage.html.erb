@@ -43,16 +43,26 @@
 
         <div id="sidenav" class="mysidenav">
         <span class="close">&times;</span>
+
+        
         <button class="signin-button" onclick="handleClick()">
         <p class="signin-text">signin</p>
         </button>
-        <button class="add-movie-button" onclick="handleAddMovie()">
-        <p class="add-movie">Add Movie</p>
-        </button>
-    
-        <button class="your-review-button" onclick="handleYourRevieew()">
-        <p class="your-review-text">Your Review</p>
-        </button>
+        <% if  cookies[:user] %>
+            <% if  JSON.parse(cookies[:user])['role'] == "admin" %>
+                <button class="add-movie-button" onclick="handleAddMovie()">
+                    <p class="add-movie">Add Movie</p>
+                </button>
+            <% end %>
+        <% end %>
+      
+        <% if  cookies[:user] %>
+           
+            <button class="your-review-button" onclick="handleYourRevieew()">
+            <p class="your-review-text">Your Review</p>
+            </button>
+         
+        <% end %>
         <div>
         <div class="sort">
         <label for="sortby" id="label-sort" style="color: white;">Sort By :</label>
@@ -64,11 +74,11 @@
         </div>
         <div class="filter">
         <label for="filterby" id="label-filter" style="color: white;">Filter By Year :</label>
-        <select name="filter-type" id="filtertype">
-            <option value="all">FilterBy</option>
-            <option value="2000">2000 before</option>
-            <option value="2001-2010">2001-2010</option>
-            <option value="2011">2011 after</option>
+        <select name="filter-type"  id="filtertype">
+            <option value="all"  class="option">FilterBy</option>
+            <option value="2000"  class="option">2000 before</option>
+            <option value="2001-2010"  class="option">2001-2010</option>
+            <option value="2011"  class="option">2011 after</option>
         </select>
         </div>
     <div class="drop">
@@ -80,9 +90,14 @@
                 </select>
     </div>
 
-        </div>
+<% if  cookies[:user] %>
+
+  </div>
         <button onclick="deleteCookie()" class="logout">Logout</button>
-        </div>
+  </div>
+
+<% end %>
+       
 
 
     </div>

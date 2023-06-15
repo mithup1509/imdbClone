@@ -26,17 +26,24 @@
   flex-direction: column;
   color: black;
 }
-.input-box {
+.movieadd-input-box {
   margin: 5px;
   padding: 10px;
   border-radius: 4px;
   border: none;
+  outline: none;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 #country {
   background-color: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
@@ -67,6 +74,9 @@
   display: none;
 }
 
+#add-movie-form{
+  padding: 5px;
+}
 .error-message-alert {
   text-align: center;
 
@@ -81,12 +91,47 @@
 }
 
 
+.navbar-for-all{
+  width: 96.5vw;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    display: flex;
+    align-items: center;
+ padding: 10px;
+}
+.navbar-home{
+  cursor: pointer;
+  width: 45%;
+display: flex;
+justify-content: flex-start;
+margin-left: 10px;
+}
+.navbar-logout{
+ 
+ width: 45%;
+display: flex;
+justify-content: flex-end;
+
+}
+.navbar-logout-button{
+  padding: 5px;
+  border: none;
+    cursor: pointer;
+  outline: none;
+  background-color: red;
+  border-radius: 5px;
+}
+
+
+
+
+
+
 
 
 
 @media (min-width: 768px) {
   .main-container {
-    width: 30%;
+    width: 40%;
   }
 
   .addmovie-text {
@@ -101,17 +146,45 @@
   }
   .label {
     flex: 1;
+    font-size: 14px;
   }
-  .input-box {
+  .movieadd-input-box  {
     flex: 3;
     padding: 10px;
     width: 70%;
   }
+
+  
+  #country {
+    flex: 3;
+    padding: 10px;
+    width: 70%;
+
+  }
+
+
+  
   .submit-button {
     padding: 15px;
     width: 130px;
     border-radius: 5px;
   }
+
+
+
+  .navbar-for-all{
+    width: 98.1vw;
+    padding: 17px;
+   }
+   .navbar-home p{
+   font-size: 25px;
+   }
+   
+   .navbar-logout-button{
+     padding: 10px;
+   
+   }
+
 }
 
 .error-text {

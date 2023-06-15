@@ -15,17 +15,37 @@
 
 <body>
     <div class="container">
+
+
+<nav>
+<div class="navbar-for-all">
+<div class="navbar-home" onclick="handlehome()">
+<p>🏠</p>
+</div>
+<div class="user-allreviews-heading">
+<h1>Add Movies</h1>
+</div>
+   <div class="navbar-logout">
+  <% if  cookies[:user] %>    
+        <button onclick="deleteCookie()" class="navbar-logout-button">Log out</button>
+     
+  <% end %>
+</div> 
+</div>
+</nav>
+
+
+
       <div class="movie-success">
       <p>Movie Add Successfully </p>
       </div>
         <div class="main-container">
 
-        <h2 class="addmovie-text">Add Movie</h2>
         <form id="add-movie-form" novalidate>
         <div>
             <div class="input-container">
                 <label class="label" for="title">Title : </label>
-                <input type="text" class="input-box" id="title" placeholder="Enter the Movie Title" required>
+                <input type="text" class="movieadd-input-box" id="title" placeholder="Enter the Movie Title" required>
                 </div>
              
                 <p id="title-error" class="error-message-alert">enter valid one </p>
@@ -34,7 +54,7 @@
          <div>
             <div class="input-container">
                 <label class="label" for="actors">Actors : </label>
-                <input type="text" class="input-box" id="actors" placeholder="Enter the Actors" required>
+                <input type="text" class="movieadd-input-box" id="actors" placeholder="Enter the Actors" required>
                 </div>
                 <p id="actors-error" class="error-message-alert">enter valid one</p>
 
@@ -42,7 +62,7 @@
          
         <div class="input-container">
                 <label class="label" for="country">Country : </label>
-                <select class="input-box" id="country" required>
+                <select class="movieadd-select-box" id="country" required>
                     <option value="">Select a country</option>
                     <option value="USA">USA</option>
                     <option value="UK">UK</option>
@@ -58,7 +78,7 @@
         <div>
             <div class="input-container">
                 <label class="label" for="director">Director : </label>
-                <input type="text" class="input-box" id="director" placeholder="Enter the Director of the Movie" required>
+                <input type="text" class="movieadd-input-box" id="director" placeholder="Enter the Director of the Movie" required>
                 </div>
                 <p id="director-error" class="error-message-alert">enter valid one</p>
 
@@ -66,7 +86,7 @@
         <div>
             <div class="input-container">
                 <label class="label" for="language">Language : </label>
-                <input type="text" class="input-box" id="language" placeholder="Enter the Language" required>
+                <input type="text" class="movieadd-input-box" id="language" placeholder="Enter the Language" required>
                 </div>
                 <p id="language-error" class="error-message-alert">enter valid one</p>
 
@@ -74,7 +94,7 @@
         <div>
             <div class="input-container">
                 <label class="label" for="plot">Plot : </label>
-                <input type="text" class="input-box" id="plot" placeholder="Enter the movie Plot" required>
+                <input type="text" class="movieadd-input-box" id="plot" placeholder="Enter the movie Plot" required>
                 </div>
                 <p id="plot-error" class="error-message-alert">enter valid one</p>
 
@@ -82,7 +102,7 @@
         <div>
             <div class="input-container">
                 <label class="label" for="released">Released : </label>
-                <input type="date" class="input-box" id="released" placeholder="Enter the  released date" required>
+                <input type="date" class="movieadd-input-box" id="released" placeholder="Enter the  released date" required>
                 </div>              
                 <p id="released-error" class="error-message-alert">enter valid one</p>
 
@@ -90,23 +110,23 @@
         <div>
             <div class="input-container">
                 <label class="label" for="runtime">Runtime : </label>
-                <input type="number" class="input-box" id="runtime" placeholder="Enter the Runtime in minutes" required>
+                <input type="number" class="movieadd-input-box" id="runtime" placeholder="Enter the Runtime in minutes" required>
                 </div>
                 <p id="runtime-error" class="error-message-alert">enter runtime in minutes</p>
 
         </div>
         <div>
             <div class="input-container">
-                <label class="label" for="type">Type : </label>
-                <input type="text" class="input-box" id="type" placeholder="Enter the movie Type" required>
+                <label class="label" for="movie-type">Type : </label>
+                <input type="text" class="movieadd-input-box" id="movie-type" placeholder="Enter the movie Type" required>
                 </div>
-                <p id="type-error" class="error-message-alert">enter valid one</p>
+                <p id="movie-type-error" class="error-message-alert">enter valid one</p>
 
         </div>
         <div>
             <div class="input-container">
                 <label class="label" for="writer">Writer : </label>
-                <input type="text" class="input-box" id="writer" placeholder="Enter the Writer" required>
+                <input type="text" class="movieadd-input-box" id="writer" placeholder="Enter the Writer" required>
                 </div>
                 <p id="writer-error" class="error-message-alert">enter valid one</p>
 
@@ -114,7 +134,7 @@
         <div>
             <div class="input-container">
                 <label class="label" for="genre">Genre : </label>
-                <input type="text" class="input-box" id="genre" placeholder="Enter the Genre" required>
+                <input type="text" class="movieadd-input-box" id="genre" placeholder="Enter the Genre" required>
                 </div>
                 <p id="genre-error" class="error-message-alert">enter valid one</p>
 
@@ -122,18 +142,12 @@
           <div>
             <div class="input-container">
                 <label class="label" for="poster">Poster : </label>
-                <input type="text" class="input-box" id="poster" placeholder="Enter the poster url" required>
+                <input type="text" class="movieadd-input-box" id="poster" placeholder="Enter the poster url" required>
                 </div>
                 <p id="poster-error" class="error-message-alert">enter proper url</p>
 
         </div>
-         <div class="input-container">
-                <label class="label" for="rating">Rating : </label>
-                <input type="number" step="0.1" class="input-box" id="rating" placeholder="Enter the rating" required>
-                </div>
-                <p id="rating-error" class="error-message-alert">enter decimal values also</p>
-
-         </div>
+      
 
         <div class="button-container">
                 <button  class="submit-button"  type="submit">Submit</button>

@@ -9,15 +9,17 @@ Rails.application.routes.draw do
 
   root "homepage#homepage"
   get "homepage/searchValue", to: "homepage#searchValue"
+  
   get "signin",to:"signin#signin"
   get "signup",to:"signup#signup"
   get "movie/:id",to:"movie#movie"
   get "movieadd",to:"addmovie#movieadd"
   get "watchlist",to:"watchlist#watchlist"
   get "review/:id",to:"review#review"
+  get "review/searchreview", to: "review#searchreview"
   get "yourrating",to:"yourratings#yourrating"
 
 
-  # get '*unmatched_route', to: 'signin#signin'
+  get '*unmatched_route', to: 'signin#signin'
   
 end

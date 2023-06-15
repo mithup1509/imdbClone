@@ -20,7 +20,8 @@ class Api::CreateaccountController < ApplicationController
     article=Article.new(
       username:account_params[:username],
       email:account_params[:email],
-      password:account_params[:password]
+      password:account_params[:password],
+  
 
     )
     if article.save
@@ -36,7 +37,8 @@ class Api::CreateaccountController < ApplicationController
   def update
     article=Article.find_by(id:params[:id])
     if article
-      article.update(username:params[:username],email:params[:email],password:params[:password])
+      role=params[:role]
+      article.update(role:role)
       render json:"updated Successfully"
     else
       render json:{
@@ -61,7 +63,8 @@ class Api::CreateaccountController < ApplicationController
     params.require(:createaccount).permit([
       :username,
       :email,
-      :password
+      :password,
+   
     ])
   end
 

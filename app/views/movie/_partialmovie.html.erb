@@ -1,9 +1,9 @@
 <div>
 <div class="my-star"> 
 <% if @rate==0 || @rate.nil?%>
- <p>★ 0/10</p>
+ <p>⭐  0/10</p>
  <% else %>
-<p>★<%= sprintf('%.1f',@rate)%>/10</p>
+<p>⭐ <%= sprintf('%.1f',@rate)%>/10</p>
  <% end %>
 </div>
 

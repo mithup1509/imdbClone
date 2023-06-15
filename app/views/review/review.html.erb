@@ -15,6 +15,26 @@
 
 <body>
     <div class="container">
+
+
+<nav>
+<div class="navbar-for-all">
+<div class="navbar-home" onclick="handlehome()">
+<p>🏠</p>
+</div>
+<div class="user-allreviews-heading">
+<h1>Your Reviews</h1>
+</div>
+   <div class="navbar-logout">
+  <% if  cookies[:user] %>    
+        <button onclick="deleteCookie()" class="navbar-logout-button">Log out</button>
+     
+  <% end %>
+</div> 
+</div>
+</nav>
+
+
     
 <div  class="reviews-container">
 <div class="review-image">
@@ -48,10 +68,12 @@
         </div>
     </div>
     </div>
+    <div class="allreview-contain">
     <% if @moviereview.empty? %>
     <p class="no-review">No reviews</p>
   <% else %>
-    <% @moviereview.each do |review| %>
+  
+    <% @moviereview.reverse_each do |review| %>
       <ul class="unorder-list">
       <% if review[:article] %>
   <li>
@@ -70,7 +92,7 @@
       </ul>
     <% end %>
   <% end %>
-  
+  </div>
     </div>
 
 

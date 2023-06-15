@@ -14,12 +14,31 @@
 </head>
 
 <body>
-<div class="user-allreviews-container">
-<div class="user-allreviews-heading">
-<h1>Your Reviews</h1>
+
+<nav>
+<div class="navbar-for-all">
+<div class="navbar-home" onclick="handlehome()">
+<p>🏠</p>
 </div>
+<div class="user-allreviews-heading">
+<h1>Your Ratings</h1>
+</div>
+   <div class="navbar-logout">
+  <% if  cookies[:user] %>    
+        <button onclick="deleteCookie()" class="navbar-logout-button">Log out</button>
+     
+  <% end %>
+</div> 
+</div>
+</nav>
+
+
+<div class="user-allreviews-container">
+
+
+<div class="allrating-contain">
    <% if @movieallreviews.empty? %>
-       <h1 class="no-data">No data Found</h1>
+       <h1 class="no-data">No Rating Found</h1>
      <% else %>
      
   <% @movieallreviews.each do |allreview| %>
@@ -78,8 +97,9 @@
 
   <% end %>
     <% end %>
+    </div>
 </div>
-
+<%= javascript_include_tag "yourrating", "data-turbo-track" => "reload" %>
 </body>
 
 </html>

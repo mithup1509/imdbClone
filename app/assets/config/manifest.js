@@ -10,3 +10,4 @@
    //= link review.js
     //= link test.css
     //= link style.css
+     //= link yourrating.js

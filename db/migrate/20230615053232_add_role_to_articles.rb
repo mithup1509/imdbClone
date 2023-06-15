@@ -1,0 +1,5 @@
+class AddRoleToArticles < ActiveRecord::Migration[7.0]
+  def change
+    add_column :articles, :role, :string ,default:"user"
+  end
+end

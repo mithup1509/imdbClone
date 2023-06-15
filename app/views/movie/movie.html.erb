@@ -17,6 +17,25 @@
 
 <div class="container">
 
+<nav>
+<div class="navbar-for-all">
+<div class="navbar-home" onclick="handlehome()">
+<p>🏠</p>
+</div>
+<div class="user-allreviews-heading">
+<h1>Movie Details</h1>
+</div>
+
+   <div class="navbar-logout">
+  <% if  cookies[:user] %>    
+        <button onclick="deleteCookie()" class="navbar-logout-button">Log out</button>
+     
+  <% end %>
+</div>  
+
+</div>
+</nav>
+
 
 <div class="movie">
   <div class="title">
@@ -51,9 +70,6 @@
       "<%= @detail.plot %>"
     </p>
   </div>
-      <div class="rating">
-        <p class="imdb-rating">⭐ <%= sprintf('%.1f', @detail.rating) %>/10</p>
-      </div>
       <%= render partial: "movie/partialmovie" %>
     
       <div class="actors">Actors:

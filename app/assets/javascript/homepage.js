@@ -8,30 +8,30 @@ let cookieArray = array ? JSON.parse(array) : [];
 
 if (!cookieArray.email) {
   signinButton.innerHTML = "signin";
-  logoutButton.disabled = true;
-  yourReviewButton.disabled = true;
+  // logoutButton.disabled = true;
+  // yourReviewButton.disabled = true;
   signButton.disabled = false;
-  logoutButton.classList.add("button-disable");
-  yourReviewButton.classList.add("button-disable");
+  // logoutButton.classList.add("button-disable");
+  // yourReviewButton.classList.add("button-disable");
 } else {
   signinButton.innerHTML = cookieArray.email;
-  logoutButton.disabled = false;
+  // logoutButton.disabled = false;
   signButton.disabled = true;
-  yourReviewButton.disabled = false;
-  logoutButton.classList.remove("button-disable");
-  yourReviewButton.classList.remove("button-disable");
+  // yourReviewButton.disabled = false;
+  // logoutButton.classList.remove("button-disable");
+  // yourReviewButton.classList.remove("button-disable");
 }
 
-const addMovieButton = document.querySelector(".add-movie-button");
+// const addMovieButton = document.querySelector(".add-movie-button");
 
-if (cookieArray.email === "mithup@gmail.com") {
-  addMovieButton.disabled = false;
-  addMovieButton.classList.remove("button-disable");
-} else {
-  addMovieButton.disabled = true;
-  addMovieButton.classList.add("button-disable");
-  console.log(cookieArray.email, "namw");
-}
+// if (cookieArray.email === "mithup@gmail.com") {
+//   addMovieButton.disabled = false;
+//   addMovieButton.classList.remove("button-disable");
+// } else {
+//   addMovieButton.disabled = true;
+//   addMovieButton.classList.add("button-disable");
+//   console.log(cookieArray.email, "namw");
+// }
 
 function handleClick() {
   window.location.href = "signin";

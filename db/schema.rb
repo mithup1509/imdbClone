@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_062439) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_055335) do
   create_table "articles", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role", default: "user"
   end
 
   create_table "moviedetails", force: :cascade do |t|

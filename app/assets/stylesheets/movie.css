@@ -40,9 +40,7 @@
 
   margin: 1rem;
 }
-.rating {
-  margin: 0.5rem;
-}
+
 .imdb-rating {
   font-size: 0.9rem;
   font-family: "Roboto Condensed", sans-serif;
@@ -169,7 +167,7 @@
   margin: 10px auto;
   padding: 10px;
   border: 1px solid #888;
-  width: 22%;
+  width: 70%;
   border-radius: 5px;
   max-width: 600px;
   font-family: "Roboto Condensed", sans-serif;
@@ -231,7 +229,7 @@
   margin:0 20px;
 }
 
-.rate-text-cancel {
+/* .rate-text-cancel {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -271,10 +269,39 @@
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
-}
+} */
 
 .genre-plot {
   padding: 10px;
+}
+.navbar-for-all{
+  width: 98vw;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(20, 21, 21) 0px 0px 0px 1px inset;
+    display: flex;
+    align-items: center;
+ padding: 10px;
+}
+.navbar-home{
+  cursor: pointer;
+  width: 45%;
+display: flex;
+justify-content: flex-start;
+margin-left: 10px;
+}
+.navbar-logout{
+ 
+ width: 45%;
+display: flex;
+justify-content: flex-end;
+
+}
+.navbar-logout-button{
+  padding: 5px;
+  border: none;
+    cursor: pointer;
+  outline: none;
+  background-color: white;
+  border-radius: 5px;
 }
 
 @media (min-width: 768px) {
@@ -311,10 +338,7 @@
     width: 100%;
     display: flex;
   }
-  .rating {
-    justify-content: center;
-    margin: 0.5rem;
-  }
+ 
   .imdb-rating {
     font-size: 1.4rem;
   }
@@ -345,6 +369,7 @@
     font-size: 1.2rem;
     text-align: center;
     margin: 2rem 0;
+    width: 94%;
   }
 
   .writer {
@@ -359,9 +384,71 @@
     margin: 10px;
   }
 
+  .modal-nouser-content {
+  
+    width: 22%;
+  }
 
 
   .user-rate-text {
     font-size: 1.5rem;
   }
+
+
+.navbar-for-all{
+
+ padding: 17px;
+}
+.navbar-home p{
+font-size: 25px;
+}
+
+.navbar-logout-button{
+  padding: 10px;
+
+}
+
+
+}
+
+.rate-text-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rate {
+  /* float: right; */
+  height: 12px; /* Updated height */
+  padding: 0 25px; /* Updated padding */
+}
+
+input[type="radio"] {
+  position: absolute;
+  top: -20px;
+}
+
+label[ title="text"] {
+  float: right;
+  width: 0.8em; /* Updated width */
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 16px; /* Updated font-size */
+  color: #ccc;
+}
+
+label[title="text"]:before {
+  content: "★ ";
+}
+
+input[type="radio"]:checked ~ label {
+  color: red;
+}
+
+
+
+input[type="radio"]:checked + label:hover,
+input[type="radio"]:hover ~ label {
+  color: blue;
 }
