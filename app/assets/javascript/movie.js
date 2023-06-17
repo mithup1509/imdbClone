@@ -6,21 +6,6 @@ let cookie = getCookie();
 
 let array = cookie ? cookie.split("=")[1] : [];
 let cookieArray = array.length !== 0 ? JSON.parse(array) : [];
-// let logoutButtonNavbar=document.querySelector(".navbar-logout-button");
-
-
-
-// if (cookieArray.length === 0) {
-
-//   logoutButtonNavbar.disabled = true;
-// } else {
-//   logoutButtonNavbar.disabled = false;
-
-// }
-
-
-
-
 
 function getCookie() {
   let cookie = decodeURIComponent(document.cookie);
@@ -51,17 +36,14 @@ function closeModal() {
   modal.classList.remove("modal-box");
 }
 
-
 let reviewsid;
 
 function handlestarRate(reviewid) {
   if (cookieArray.length === 0) {
     showNouserModel();
-    // logoutButtonNavbar.disabled = true;
   } else {
-    // logoutButtonNavbar.disabled = false;
     reviewid ? (reviewsid = reviewid) : (reviewsid = "");
-   
+
     const modal = document.querySelector(".modal-rate");
     modal.classList.add("modal-box");
   }
@@ -102,7 +84,7 @@ function handleSubmitRating() {
           return res.json();
         })
         .then((data) => {
-          window.location.reload()
+          window.location.reload();
         })
         .catch((error) => {});
       reviewsid = "";
@@ -124,7 +106,7 @@ function handleSubmitRating() {
           return res.json();
         })
         .then((data) => {
-          window.location.reload()
+          window.location.reload();
         })
         .catch((error) => {
           return error;
@@ -147,10 +129,9 @@ function handleClickSignin() {
   window.location.href = newURL;
 }
 
-function handlehome(){
+function handlehome() {
   window.location.href = "/";
 }
-
 
 function setCookie(user, data, seconds) {
   const date = new Date();
@@ -166,7 +147,3 @@ function deleteCookie() {
 
   window.location.href = newURL;
 }
-
-
-
-

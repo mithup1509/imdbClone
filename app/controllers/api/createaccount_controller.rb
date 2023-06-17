@@ -36,10 +36,17 @@ class Api::CreateaccountController < ApplicationController
 
   def update
     article=Article.find_by(id:params[:id])
+    
     if article
       role=params[:role]
-      article.update(role:role)
-      render json:"updated Successfully"
+      password=params[:password]
+      if role
+        article.update(role:role)
+      elsif password
+        article.update(password:password,role:article.role)
+      end
+      
+      render json:article,status:200
     else
       render json:{
         error:"No data Found"

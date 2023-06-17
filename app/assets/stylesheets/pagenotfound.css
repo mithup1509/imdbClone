@@ -1,0 +1,231 @@
+.robot{
+    width: 70%;
+    margin-top: 100px;
+    margin: auto;
+}
+.robot-container{
+    width: 100vw;
+    height: 100vh;
+    padding-top: 10%;
+}
+.robot-head{
+
+  margin: auto;
+    width: 60px;
+    height: 60px;
+    background-color: grey;
+    border-radius: 7px;
+}
+
+.robot-top-head{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.numone{
+    width: 10px;
+    height: 8px;
+    
+    margin: auto;
+    border-radius: 50%;
+    background-color: red;
+}
+.numtwo{
+    
+    background-color: black;
+    width: 15px;
+    height: 8px;
+    border-radius: 5px;
+    margin: auto;
+}
+.numthree{
+
+    background-color: black;
+        width: 20px;
+    height: 8px;
+    border-radius: 5px;
+    margin: auto;
+}
+.numfour{
+
+    background-color: black;
+        width: 25px;
+    height: 8px;
+    border-radius: 5px;
+    margin: auto;
+}
+.numfive{
+    background-color: black;
+    width: 30px;
+    border-radius: 5px;
+    height: 8px;
+    margin: auto;
+}
+
+.robot-eyes{
+    width: 100%;
+ 
+padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.robot-lefteye,.robot-righteye{
+
+    background-color: black;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.eye-ball{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin: auto;
+    align-self: center;
+    background-color: white;
+}
+
+
+.robot-mouth{
+    margin: auto;
+    margin-top: 11px;
+    border: 1px solid black;
+    width: 40px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.robot-neck{
+    background-color: grey;
+    /* border: 1px solid black; */
+    width: 25px;
+    height: 15px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.robot-stomac{ 
+    height: 100%;
+   width: 60%;
+    display: flex;
+    flex-direction: column;
+   
+    gap: 5px;
+}
+.robot-body-part{
+    flex: 1;
+    border-radius: 5px;
+    background-color: grey;
+    /* border: 1px solid black; */
+    width: 100%;
+}
+.robot-body{
+    width: 200px;
+    height: 130px;
+    display: flex;
+    margin: auto;
+}
+
+.robot-left-hand,.robot-right-hand{
+/* border: 1px solid black; */
+background-color: grey;
+width: 15px ;
+height: 50px;
+
+}
+.robot-lefthand,.robot-righthand{ 
+    width: 20%;
+    display: flex;
+    }
+
+.righthand-grip,.lefthand-grip{
+    /* border:1px solid black; */
+    width:80px;
+    height:30px;
+    background-color:rgb(67, 184, 157);
+    z-index:1;
+}
+
+
+
+
+.robot-left-hand{
+    transform: rotate(220deg);
+    width: 100px;
+    height: 60px;
+    z-index: -1;
+    position: relative;
+    top: 1px;
+}
+
+.robot-right-hand{
+    transform: rotate(-35deg);
+    width: 100px;
+    height: 60px;
+    z-index: -1;
+    position: relative;
+    top: 1px;
+   
+}
+
+.robot-legs{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    justify-content: space-around;
+}
+.robot-left-leg,.robot-right-leg{
+    /* border: 1px solid black; */
+    background-color: grey;
+width: 30px;
+height: 90px;
+border-radius: 5px;
+}
+.robot-right-foot,.robot-left-foot{
+    width: 30px;
+    border: 1px solid black;
+    height: 5px;
+    background-color: rgb(73, 181, 174);
+    border-radius: 15px;
+}
+
+
+.robot-board{
+    /* border: 1px solid black; */
+    width: 250px;
+    height: 150px;
+    z-index: 1;
+    position: relative;
+    background-color: rgb(213, 209, 209);
+bottom: 200px;
+margin: 0 auto;
+}
+
+.notfound-text{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: red;
+    font-family: "Roboto Condensed", sans-serif;
+}
+.robo-error-num{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-family: "Roboto Condensed", sans-serif;
+
+}
+.firstfour{
+    color: purple;
+    font-size: 100px;
+}
+.firstzero{
+    font-size: 100px;
+    color: purple;
+}
+.secondfour{
+    font-size: 100px;
+    color: purple;
+}

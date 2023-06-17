@@ -1,37 +1,19 @@
 let signinButton = document.getElementsByClassName("signin-text")[0];
 let logoutButton = document.querySelector(".logout");
 let signButton = document.querySelector(".signin-button");
-let yourReviewButton=document.querySelector(".your-review-button");
+let yourReviewButton = document.querySelector(".your-review-button");
 let cookie = getCookie();
 let array = cookie.split("=")[1];
 let cookieArray = array ? JSON.parse(array) : [];
 
 if (!cookieArray.email) {
   signinButton.innerHTML = "signin";
-  // logoutButton.disabled = true;
-  // yourReviewButton.disabled = true;
+
   signButton.disabled = false;
-  // logoutButton.classList.add("button-disable");
-  // yourReviewButton.classList.add("button-disable");
 } else {
   signinButton.innerHTML = cookieArray.email;
-  // logoutButton.disabled = false;
   signButton.disabled = true;
-  // yourReviewButton.disabled = false;
-  // logoutButton.classList.remove("button-disable");
-  // yourReviewButton.classList.remove("button-disable");
 }
-
-// const addMovieButton = document.querySelector(".add-movie-button");
-
-// if (cookieArray.email === "mithup@gmail.com") {
-//   addMovieButton.disabled = false;
-//   addMovieButton.classList.remove("button-disable");
-// } else {
-//   addMovieButton.disabled = true;
-//   addMovieButton.classList.add("button-disable");
-//   console.log(cookieArray.email, "namw");
-// }
 
 function handleClick() {
   window.location.href = "signin";
@@ -41,7 +23,7 @@ function clickOnCard(imdbID) {
   window.location.href = `movie/${imdbID}`;
 }
 
-function handleYourRevieew(){
+function handleYourRevieew() {
   window.location.href = `yourrating`;
 }
 

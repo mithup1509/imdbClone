@@ -1,8 +1,7 @@
 let defaultregexPattern = /.*/; // Default pattern for non-password fields
-let usernameRegexPattern= /^[A-Za-z, ]*[^ ][A-Za-z, ]*$/; // Alphabetic characters only for username
-let emailRegexPattern=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // Email pattern
-let passwordRegexPattern=/.{8,}/; // Minimum 8 characters for password fields
-
+let usernameRegexPattern = /^[A-Za-z, ]*[^ ][A-Za-z, ]*$/; // Alphabetic characters only for username
+let emailRegexPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // Email pattern
+let passwordRegexPattern = /.{8,}/; // Minimum 8 characters for password fields
 
 function validateInput(inputElement, regexPattern) {
   let inputValue = inputElement.value;
@@ -17,7 +16,7 @@ function validateInput(inputElement, regexPattern) {
   } else {
     inputElement.classList.add("input-error");
     errorElement.classList.add("error-message");
-   
+
     return false;
   }
 }
@@ -27,109 +26,111 @@ createAccountForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let nameValidate = validateInput(
-    document.getElementById("username"),usernameRegexPattern
-    
+    document.getElementById("username"),
+    usernameRegexPattern
   );
   let emailValidate = validateInput(
     document.getElementById("email"),
-   emailRegexPattern
+    emailRegexPattern
   );
   let passwordValidate = validateInput(
     document.getElementById("password"),
-   passwordRegexPattern
+    passwordRegexPattern
   );
   let rePasswordValidate = validateInput(
     document.getElementById("repassword"),
-  passwordRegexPattern
+    passwordRegexPattern
   );
 
-  if (nameValidate && emailValidate && passwordValidate && rePasswordValidate ) {
+  if (nameValidate && emailValidate && passwordValidate && rePasswordValidate) {
     let username = document.getElementById("username").value;
     let userEmail = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-if(password===document.getElementById("repassword").value){
-  document.querySelector(".re-enterpassword").classList.remove("input-error");
-  document.querySelector(".repassword-alert-message").classList.remove("error-message");
+    if (password === document.getElementById("repassword").value) {
+      document
+        .querySelector(".re-enterpassword")
+        .classList.remove("input-error");
+      document
+        .querySelector(".repassword-alert-message")
+        .classList.remove("error-message");
 
+      let userdata = {
+        username: username,
+        email: userEmail,
+        password: password,
+      };
 
-  let userdata = {
-    username: username,
-    email: userEmail,
-    password: password,
-  };
+      let existingFormData = fetchUsers()
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          let formdata = data ? data : [];
+          let addLocalStorage = !formdata.some(
+            (element) => element.email === userEmail
+          );
 
-  let existingFormData= fetchUsers().then((res)=>{
+          if (addLocalStorage) {
+            document
+              .querySelector(".already-account-alert")
+              .classList.remove("input-error");
+            resetForm();
 
-    return res.json();
-    }).then((data)=>{
-      let formdata =   data ? (data) : [];
-      let addLocalStorage = !formdata.some(
-        (element) => element.email === userEmail
-      );
+            formdata.push(userdata);
+            console.log(JSON.stringify(userdata));
 
-  if (addLocalStorage) {
-    document
-      .querySelector(".already-account-alert")
-      .classList.remove("input-error");
-    resetForm();
-
-    formdata.push(userdata);
-    console.log(JSON.stringify(userdata));
-
-    fetch("http://127.0.0.1:3000/api/createaccount/",{
-      method:"POST",
-      headers:{
-        "Content-Type": "application/json",
-      },
-      body:JSON.stringify(userdata),
-
-    }).then((res)=>{
-      if(res){
-        return res.json();
-      }else{
-        return "Error in Creating";
-      }
-    }).then((data)=>{
-      window.location.href = "signin";
-    })    .catch((error) => {
-      return error;
-    });
-
-     
-  } else {
-    document
-      .querySelector(".already-account-alert")
-      .classList.add("input-error");
-  }
-      return data;
-    }).catch((err)=>{
-      return err;
-    });
-
-
-
-}else{
- 
-  document.querySelector(".re-enterpassword").classList.add("input-error");
-  document.querySelector(".repassword-alert-message").classList.add("error-message");
-}
+            fetch("http://127.0.0.1:3000/api/createaccount/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userdata),
+            })
+              .then((res) => {
+                if (res) {
+                  return res.json();
+                } else {
+                  return "Error in Creating";
+                }
+              })
+              .then((data) => {
+                window.location.href = "signin";
+              })
+              .catch((error) => {
+                return error;
+              });
+          } else {
+            document
+              .querySelector(".already-account-alert")
+              .classList.add("input-error");
+          }
+          return data;
+        })
+        .catch((err) => {
+          return err;
+        });
+    } else {
+      document.querySelector(".re-enterpassword").classList.add("input-error");
+      document
+        .querySelector(".repassword-alert-message")
+        .classList.add("error-message");
+    }
   }
 });
-
 
 let inputs = document.querySelectorAll(
   "#createaccount-form input:not([type='submit'])"
 );
 inputs.forEach((input) => {
   input.addEventListener("keyup", () => {
-let regexPattern;
+    let regexPattern;
     if (input.id === "password" || input.id === "repassword") {
       regexPattern = passwordRegexPattern;
     } else if (input.id === "email") {
       regexPattern = emailRegexPattern;
     } else if (input.id === "username") {
       regexPattern = usernameRegexPattern;
-    }else{
+    } else {
       regexPattern = defaultregexPattern;
     }
 
@@ -149,6 +150,6 @@ function handleClick() {
   window.location.href = "signin";
 }
 
-function fetchUsers(){
-return fetch("http://127.0.0.1:3000/api/createaccount/");
+function fetchUsers() {
+  return fetch("http://127.0.0.1:3000/api/createaccount/");
 }

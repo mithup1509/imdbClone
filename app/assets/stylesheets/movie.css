@@ -11,7 +11,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.my-star{
+.my-star {
   font-size: 16px;
   margin: 10px;
   font-family: "Roboto Condensed", sans-serif;
@@ -81,8 +81,7 @@
 .genre ul {
   display: flex;
   font-size: 1rem;
-  /* margin: 1rem; */
-  /* margin-left: 2rem; */
+
   font-family: "Roboto Condensed", sans-serif;
 }
 .genre li {
@@ -222,83 +221,40 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
-.submit-rate{
+.submit-rate {
   background-color: #deb217;
   border: none;
   padding: 7px;
-  margin:0 20px;
+  margin: 0 20px;
 }
-
-/* .rate-text-cancel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.rate {
-  float: left;
-  height: 46px;
-  padding: 0 10px;
-}
-.rate:not(:checked) > input {
-  position: absolute;
-  top: -9999px;
-}
-.rate:not(:checked) > label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 20px;
-  color: #ccc;
-}
-.rate:not(:checked) > label:before {
-  content: "★ ";
-}
-.rate > input:checked ~ label {
-  color: #ffc700;
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-  color: #deb217;
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-  color: #c59b08;
-} */
 
 .genre-plot {
   padding: 10px;
 }
-.navbar-for-all{
+.navbar-for-all {
   width: 98vw;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(20, 21, 21) 0px 0px 0px 1px inset;
-    display: flex;
-    align-items: center;
- padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(20, 21, 21) 0px 0px 0px 1px inset;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
-.navbar-home{
+.navbar-home {
   cursor: pointer;
   width: 45%;
-display: flex;
-justify-content: flex-start;
-margin-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
 }
-.navbar-logout{
- 
- width: 45%;
-display: flex;
-justify-content: flex-end;
-
+.navbar-logout {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
 }
-.navbar-logout-button{
+.navbar-logout-button {
   padding: 5px;
   border: none;
-    cursor: pointer;
+  cursor: pointer;
   outline: none;
   background-color: white;
   border-radius: 5px;
@@ -322,7 +278,6 @@ justify-content: flex-end;
     justify-content: center;
   }
   .genre-plot {
-  
     flex: 1;
   }
 
@@ -332,13 +287,12 @@ justify-content: flex-end;
   }
   .details {
     width: 70%;
-    /* margin: 1rem; */
   }
   .poster-image {
     width: 100%;
     display: flex;
   }
- 
+
   .imdb-rating {
     font-size: 1.4rem;
   }
@@ -385,30 +339,23 @@ justify-content: flex-end;
   }
 
   .modal-nouser-content {
-  
     width: 22%;
   }
-
 
   .user-rate-text {
     font-size: 1.5rem;
   }
 
+  .navbar-for-all {
+    padding: 17px;
+  }
+  .navbar-home p {
+    font-size: 25px;
+  }
 
-.navbar-for-all{
-
- padding: 17px;
-}
-.navbar-home p{
-font-size: 25px;
-}
-
-.navbar-logout-button{
-  padding: 10px;
-
-}
-
-
+  .navbar-logout-button {
+    padding: 10px;
+  }
 }
 
 .rate-text-cancel {
@@ -418,9 +365,8 @@ font-size: 25px;
 }
 
 .rate {
-  /* float: right; */
-  height: 12px; /* Updated height */
-  padding: 0 25px; /* Updated padding */
+  height: 12px;
+  padding: 0 25px;
 }
 
 input[type="radio"] {
@@ -428,13 +374,13 @@ input[type="radio"] {
   top: -20px;
 }
 
-label[ title="text"] {
+label[title="text"] {
   float: right;
-  width: 0.8em; /* Updated width */
+  width: 0.8em;
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 16px; /* Updated font-size */
+  font-size: 16px;
   color: #ccc;
 }
 
@@ -445,8 +391,6 @@ label[title="text"]:before {
 input[type="radio"]:checked ~ label {
   color: red;
 }
-
-
 
 input[type="radio"]:checked + label:hover,
 input[type="radio"]:hover ~ label {

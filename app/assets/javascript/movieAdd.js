@@ -72,7 +72,6 @@ addMovieForm.addEventListener("submit", (event) => {
     imageUrlRegexPattern
   );
 
-
   if (
     titleValidate &&
     actorsValidate &&
@@ -84,7 +83,7 @@ addMovieForm.addEventListener("submit", (event) => {
     typeValidate &&
     writerValidate &&
     genreValidate &&
-    posterValidate 
+    posterValidate
   ) {
     let title = document.getElementById("title").value;
     let runtime = document.getElementById("runtime").value;
@@ -99,7 +98,6 @@ addMovieForm.addEventListener("submit", (event) => {
     let poster = document.getElementById("poster").value;
     let movietype = document.getElementById("movie-type").value;
 
-
     let newMovie = {
       title: title,
       runtime: runtime,
@@ -113,7 +111,6 @@ addMovieForm.addEventListener("submit", (event) => {
       genre: genre,
       poster: poster,
       movietype: movietype,
-    
     };
 
     fetch("http://127.0.0.1:3000/api/moviedetail/", {
@@ -141,8 +138,6 @@ addMovieForm.addEventListener("submit", (event) => {
       .catch((err) => {
         return err;
       });
-
-   
   }
 });
 
@@ -185,39 +180,9 @@ function clearForm() {
   });
 }
 
-
-
-function handlehome(){
+function handlehome() {
   window.location.href = "/";
 }
-
-
-// let cookie = getCookie();
-// let array = cookie ? cookie.split("=")[1] : [];
-// let cookieArray = array.length !== 0 ? JSON.parse(array) : [];
-
-
-// let logoutButtonNavbar=document.querySelector(".navbar-logout-button");
-
-
-
-// if (cookieArray.length === 0) {
-
-//   logoutButtonNavbar.disabled = true;
-// } else {
-//   logoutButtonNavbar.disabled = false;
-
-// }
-
-
-
-
-// function getCookie() {
-//   let cookie = decodeURIComponent(document.cookie);
-//   return cookie;
-// }
-
-
 
 function setCookie(user, data, seconds) {
   const date = new Date();
@@ -228,7 +193,6 @@ function setCookie(user, data, seconds) {
 
 function deleteCookie() {
   setCookie("user", null, null);
- 
+
   window.location.href = "signin";
 }
-

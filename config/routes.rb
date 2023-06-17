@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   get "review/:id",to:"review#review"
   get "review/searchreview", to: "review#searchreview"
   get "yourrating",to:"yourratings#yourrating"
+  get "forgetpass",to:"forgetpass#forgetpass"
+  
 
-
-  get '*unmatched_route', to: 'signin#signin'
+  get '*unmatched_route', to: 'pagenotfound#pagenotfound'
   
 end

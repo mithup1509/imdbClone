@@ -1,152 +1,143 @@
-.user-allreviews-container{
-    width: 80%;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+.user-allreviews-container {
+  width: 80%;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
     rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-    margin: auto;
-    
+  margin: auto;
 }
-.allreviews{
-    width: 100%;
-    display: flex;
-    margin-top: 10px;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+.allreviews {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
     rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
-.allreviews-poster{
-   padding: 10px;
-    width: 30%;
-    display: flex;
-   align-items: center;
+.allreviews-poster {
+  padding: 10px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.allreviews-poster img {
+  margin: auto;
+  width: 100%;
+  height: 70%;
+}
+.allreviews-details {
+  width: 70%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.allreviews-title {
+  padding: 2px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Roboto Condensed", sans-serif;
+}
 
+.allreviews-director,
+.allreviews-language,
+.allreviews-writer {
+  font-size: 12px;
+  padding: 2px;
+  font-family: "Roboto Condensed", sans-serif;
 }
-.allreviews-poster img{
+.allreviews-plot {
+  padding: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.allreviews-runtime,
+.allreviews-movie-year {
+  font-size: 13px;
+  padding: 2px;
+  font-weight: 500;
+  color: black;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.user-allreviews-heading {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.allrating-contain {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.navbar-for-all {
+  width: 96.5vw;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.navbar-home {
+  cursor: pointer;
+  width: 45%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+.navbar-logout {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+}
+.navbar-logout-button {
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: red;
+  border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+  .user-allreviews-container {
+    width: 50%;
+  }
+
+  .allreviews-poster img {
     margin: auto;
-    width: 100%;
+    width: 50%;
     height: 70%;
-}
-.allreviews-details{
-  
-    width: 70%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-}
-.allreviews-title{
-    padding: 2px;
-    font-size: 18px;
-    font-weight: 700;
-    font-family: "Roboto Condensed", sans-serif;
-}
+  }
 
-.allreviews-director,.allreviews-language,.allreviews-writer{
-    font-size: 12px;
+  .allreviews-director,
+  .allreviews-language,
+  .allreviews-writer {
+    font-size: 14px;
     padding: 2px;
     font-family: "Roboto Condensed", sans-serif;
-}
-.allreviews-plot{
+  }
+  .allreviews-plot {
     padding: 2px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     font-family: "Roboto Condensed", sans-serif;
-}
-.allreviews-runtime,.allreviews-movie-year{
-    font-size: 13px;
+  }
+  .allreviews-runtime,
+  .allreviews-movie-year {
+    font-size: 15px;
     padding: 2px;
     font-weight: 500;
     color: black;
     font-family: "Roboto Condensed", sans-serif;
-}
-.user-allreviews-heading{
-    text-align: center;
+  }
+
+  .navbar-for-all {
+    width: 98.1vw;
+    padding: 17px;
+  }
+  .navbar-home p {
+    font-size: 25px;
+  }
+
+  .navbar-logout-button {
     padding: 10px;
-    font-size: 12px;
-}
-
-.allrating-contain{
-    height: 80vh;
-    overflow-y: scroll;
   }
-
-
-  .navbar-for-all{
-    width: 96.5vw;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
-      display: flex;
-      align-items: center;
-   padding: 10px;
-  }
-  .navbar-home{
-    cursor: pointer;
-    width: 45%;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 10px;
-  }
-  .navbar-logout{
-   
-   width: 45%;
-  display: flex;
-  justify-content: flex-end;
-  
-  }
-  .navbar-logout-button{
-    
-    padding: 5px;
-    border: none;
-      cursor: pointer;
-    outline: none;
-    background-color: red;
-    border-radius: 5px;
-  }
-  
-
-@media (min-width: 768px) {
-
-
-    .user-allreviews-container{
-        width: 50%;
-      
-    }
-
- 
-    .allreviews-poster img{
-        margin: auto;
-        width: 50%;
-        height: 70%;
-    }
-
-    
-    .allreviews-director,.allreviews-language,.allreviews-writer{
-        font-size: 14px;
-        padding: 2px;
-        font-family: "Roboto Condensed", sans-serif;
-    }
-    .allreviews-plot{
-        padding: 2px;
-        font-size: 15px;
-        font-weight: 700;
-        font-family: "Roboto Condensed", sans-serif;
-    }
-    .allreviews-runtime,.allreviews-movie-year{
-        font-size: 15px;
-        padding: 2px;
-        font-weight: 500;
-        color: black;
-        font-family: "Roboto Condensed", sans-serif;
-    }
-
-
-
-    .navbar-for-all{
-        width: 98.1vw;
-        padding: 17px;
-       }
-       .navbar-home p{
-       font-size: 25px;
-       }
-       
-       .navbar-logout-button{
-         padding: 10px;
-       
-       }
 }

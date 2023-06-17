@@ -11,3 +11,4 @@
     //= link test.css
     //= link style.css
      //= link yourrating.js
+      //= link forgetpass.js

@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+  background-color: white;
+  color: black;
+}
+
+.container {
+  background-color: white;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.forgetpass-container {
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  width: 20rem;
+  margin-top: 5rem;
+}
+
+.forgetpass-text {
+  font-size: 2rem;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 1rem;
+}
+
+.no-email {
+  padding: 10px;
+  font-weight: 700;
+  display: none;
+}
+
+.forgetpass-input-box {
+  margin-top: 0.3rem;
+  padding: 0.5rem;
+  width: 90%;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  outline: none;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.forgetpass-retype-password,
+.forgetpass-password {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.forgetpass-email {
+  font-weight: 700;
+  margin-top: 0.7rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#forget-submit-button {
+  width: 96%;
+  outline: none;
+  border: none;
+  background-color: gold;
+  margin-top: 1rem;
+  border-radius: 5px;
+  height: 2.5rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#italic-text {
+  font-size: 1.2rem;
+  margin-right: 0.3em;
+  color: rgb(152, 200, 216);
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.forgetpass-email-alert-message,
+.forgetpass-repassword-alert-message,
+.forgetpass-password-alert-message {
+  display: none;
+  margin: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.password-success {
+  background-color: palegreen;
+  padding: 20px;
+  margin-top: 10px;
+  display: none;
+}
+
+.forgetpass-signin {
+  padding: 15px;
+  margin-top: 10px;
+  width: 95%;
+  border-radius: 5px;
+  display: none;
+  background-color: red;
+  border: none;
+  outline: none;
+}
+.success-password {
+  display: block;
+}
+
+.error-message {
+  color: red;
+  display: block;
+}
+.input-error {
+  border: 2px solid red;
+  color: red;
+  display: block;
+}

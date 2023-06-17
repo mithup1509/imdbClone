@@ -8,22 +8,6 @@ let cookie = getCookie();
 let array = cookie ? cookie.split("=")[1] : [];
 let cookieArray = array.length !== 0 ? JSON.parse(array) : [];
 
-
-// let logoutButtonNavbar=document.querySelector(".navbar-logout-button");
-
-
-
-// if (cookieArray.length === 0) {
-
-//   logoutButtonNavbar.disabled = true;
-// } else {
-//   logoutButtonNavbar.disabled = false;
-
-// }
-
-
-
-
 function getCookie() {
   let cookie = decodeURIComponent(document.cookie);
   return cookie;
@@ -94,7 +78,7 @@ reviewForm.addEventListener("submit", (event) => {
       });
   }
   reviewInput.value = "";
-  window.location.reload()
+  window.location.reload();
   closeModal();
 });
 
@@ -105,11 +89,9 @@ function handleClickSignin() {
   window.location.href = newURL;
 }
 
-
-function handlehome(){
+function handlehome() {
   window.location.href = "/";
 }
-
 
 function setCookie(user, data, seconds) {
   const date = new Date();

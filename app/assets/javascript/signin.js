@@ -1,4 +1,4 @@
-let defaultregexPattern = /.*/; // Default pattern for non-password fields
+const defaultregexPattern = /.*/; // Default pattern for non-password fields
 let emailRegexPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // Email pattern
 let passwordRegexPattern = /.{8,}/; // Minimum 8 characters for password fields
 
@@ -117,4 +117,8 @@ function setCookie(user) {
   date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
   let expires = "expires=" + date.toUTCString();
   document.cookie = `user=${JSON.stringify(user)};${expires};path=/`;
+}
+
+function handleforgetpass() {
+  window.location.href = "forgetpass";
 }

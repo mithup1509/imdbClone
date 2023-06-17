@@ -65,16 +65,16 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
-.movie-success{
+.movie-success {
   padding: 10px;
-  border:1px solid black;
+  border: 1px solid black;
   margin-top: 15px;
   width: 90%;
   text-align: center;
   display: none;
 }
 
-#add-movie-form{
+#add-movie-form {
   padding: 5px;
 }
 .error-message-alert {
@@ -84,50 +84,40 @@
   visibility: hidden;
 }
 
-.success{
+.success {
   display: block;
   background-color: palegreen;
   border: none;
 }
 
-
-.navbar-for-all{
+.navbar-for-all {
   width: 96.5vw;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
-    display: flex;
-    align-items: center;
- padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
-.navbar-home{
+.navbar-home {
   cursor: pointer;
   width: 45%;
-display: flex;
-justify-content: flex-start;
-margin-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
 }
-.navbar-logout{
- 
- width: 45%;
-display: flex;
-justify-content: flex-end;
-
+.navbar-logout {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
 }
-.navbar-logout-button{
+.navbar-logout-button {
   padding: 5px;
   border: none;
-    cursor: pointer;
+  cursor: pointer;
   outline: none;
   background-color: red;
   border-radius: 5px;
 }
-
-
-
-
-
-
-
-
 
 @media (min-width: 768px) {
   .main-container {
@@ -148,43 +138,35 @@ justify-content: flex-end;
     flex: 1;
     font-size: 14px;
   }
-  .movieadd-input-box  {
+  .movieadd-input-box {
     flex: 3;
     padding: 10px;
     width: 70%;
   }
 
-  
   #country {
     flex: 3;
     padding: 10px;
     width: 70%;
-
   }
 
-
-  
   .submit-button {
     padding: 15px;
     width: 130px;
     border-radius: 5px;
   }
 
-
-
-  .navbar-for-all{
+  .navbar-for-all {
     width: 98.1vw;
     padding: 17px;
-   }
-   .navbar-home p{
-   font-size: 25px;
-   }
-   
-   .navbar-logout-button{
-     padding: 10px;
-   
-   }
+  }
+  .navbar-home p {
+    font-size: 25px;
+  }
 
+  .navbar-logout-button {
+    padding: 10px;
+  }
 }
 
 .error-text {
